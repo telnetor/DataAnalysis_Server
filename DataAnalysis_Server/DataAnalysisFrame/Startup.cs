@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NLog.Web;
 
 namespace DataAnalysisFrame
 {
@@ -40,7 +42,8 @@ namespace DataAnalysisFrame
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            env.ConfigureNLog("Nlog.config");//读取Nlog配置文件
             app.UseMvc();
         }
     }

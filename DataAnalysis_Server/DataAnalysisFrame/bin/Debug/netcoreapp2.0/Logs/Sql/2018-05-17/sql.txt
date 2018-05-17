@@ -1,0 +1,12 @@
+2018-05-17 23:30:49.7580 | Info | Insert into Test(TsName,TsAge)  Values (@TsName,@TsAge);SELECT @@IDENTITY; 
+2018-05-17 23:30:49.8441 | Info | Select * from Test Where ((TsId = 1) and (TsName = 'SmallHan')) 
+2018-05-17 23:30:49.8441 | Info | Insert into Test(TsName,TsAge)  Values (@TsName,@TsAge);SELECT @@IDENTITY; 
+2018-05-17 23:30:49.8848 | Info | Delete from Test Where (TsId = 2); 
+2018-05-17 23:30:49.8764 | Info | Update Test Set TsAge = 99 Where (TsId = 1) 
+2018-05-17 23:32:21.5571 | Info | Insert into Test(TsName,TsAge)  Values (@TsName,@TsAge);SELECT @@IDENTITY; 
+2018-05-17 23:32:21.6262 | Info | Select * from Test Where ((TsId = 1) and (TsName = 'SmallHan')) 
+2018-05-17 23:32:33.0948 | Info | Insert into Test(TsName,TsAge)  Values (@TsName,@TsAge);SELECT @@IDENTITY; 
+2018-05-17 23:32:33.1222 | Info | Update Test Set TsAge = 99 Where (TsId = 1) 
+2018-05-17 23:32:33.1222 | Info | Delete from Test Where (TsId = 2); 
+2018-05-17 23:36:52.5086 | Info | Insert into Test(TsName,TsAge)  Values (@TsName,@TsAge);SELECT @@IDENTITY; 
+2018-05-17 23:36:58.5536 | Info | Select * from Test Where ((TsId = 1) and (TsName = 'SmallHan')) 

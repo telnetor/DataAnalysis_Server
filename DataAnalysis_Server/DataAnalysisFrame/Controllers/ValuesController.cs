@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataAnalysis.Component.Tools.Log;
 using DataAnalysis.Core.Data.Entity.UnitTestEntity;
 using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ namespace DataAnalysisFrame.Controllers
         private readonly ITestRepository _iTestRepository;
         public ValuesController(ITestRepository iTestRepository)
         {
+
             _iTestRepository = iTestRepository;
         }
         // GET api/values
@@ -25,6 +27,14 @@ namespace DataAnalysisFrame.Controllers
                 TsName = "SmallHan",
                 TsAge = 20
             });
+            _iTestRepository.GetList(p => p.TsId == 1 && p.TsName == "SmallHan");
+            _iTestRepository.Add(new TestEntity() { TsName = "小明", TsAge = 20 });
+            _iTestRepository.Modify(p => new TestEntity()
+            {
+                TsAge = 99
+            }, o => o.TsId == 1);
+            _iTestRepository.Remove(p => p.TsId == 2);
+            //_iTestRepository.ExecuteQuery<TestEntity>("SELECT * FROM Test WHERE TsId=@TsId", new { TsId = 1 });
             return new string[] { "value1", "value2" };
         }
 

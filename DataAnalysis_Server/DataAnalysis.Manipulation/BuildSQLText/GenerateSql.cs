@@ -6,7 +6,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using DataAnalysis.Component.Tools.Common;
+using DataAnalysis.Component.Tools.Log;
 using DataAnalysis.Manipulation.Base;
 using DataAnalysis.Manipulation.ExpressionResolve;
 using DataAnalysis.Manipulation.ExpressionResolve.Base;
@@ -464,7 +466,6 @@ namespace DataAnalysis.Manipulation.BuildSQLText
             sqlParams.AddRange(resolve.Paras.ToList());
 
             var sqlText = strSql.ToString();
-
             return new Tuple<string, IDbDataParameter[]>(sqlText, sqlParams.ToArray());
         }
 
@@ -483,7 +484,6 @@ namespace DataAnalysis.Manipulation.BuildSQLText
             strSql.AppendFormat(" Where {0};", resolve.SqlWhere);
 
             var sqlText = strSql.ToString();
-
             return new Tuple<string, IDbDataParameter[]>(sqlText, resolve.Paras);
         }
 
@@ -551,7 +551,6 @@ namespace DataAnalysis.Manipulation.BuildSQLText
             strSql.AppendFormat(" Where {0};", resolve.SqlWhere);
 
             var sqlText = strSql.ToString();
-
             return new Tuple<string, IDbDataParameter[]>(sqlText, resolve.Paras);
         }
 
@@ -585,10 +584,7 @@ namespace DataAnalysis.Manipulation.BuildSQLText
                 var orderby = ExpressionResolve.Base.AiExpressionWriterSql.BizWhereWriteToString(orderByExpression, AiExpSqlType.aiOrder);
                 strSql.AppendFormat(" Order by {0};", orderby);
             }
-
-
             var sqlText = strSql.ToString();
-
             return new Tuple<string, IDbDataParameter[]>(sqlText, dbParams);
         }
 
@@ -627,7 +623,6 @@ namespace DataAnalysis.Manipulation.BuildSQLText
             }
 
             var sqlText = strSql.ToString();
-
             return new Tuple<string, IDbDataParameter[]>(sqlText, dbParams.ToArray());
         }
 

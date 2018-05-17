@@ -1,5 +1,7 @@
 ﻿using Dapper;
 using DataAnalysis.Component.Tools.Common;
+using DataAnalysis.Component.Tools.Log;
+using DataAnalysis.Core.Data.Entity.UnitTestEntity;
 using DataAnalysis.Core.Data.IRepositories;
 using DataAnalysis.Manipulation;
 using DataAnalysis.Manipulation.Base;
@@ -19,7 +21,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
     {
         private readonly IDbConnection _connection;
 
-        public IUnitOfWork UnitOfWork  { get; }
+        public IUnitOfWork UnitOfWork { get; }
         private readonly GenerateSql<TEntity> _generateSql;
 
         public BaseRepository(IUnitOfWork unitOfWork)
@@ -68,6 +70,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 addResult = _connection.Execute(addSql.Item1, args, transaction);
             }
             _connection.Dispose();
+            RecordSql(addSql.Item1);
             return addResult;
         }
 
@@ -80,12 +83,14 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
             var modResult = _connection.ExecuteScalar<int>(modSql.Item1, args);
             _connection.Close();
+            RecordSql(modSql);
             return modResult;
         }
 
         public object ExcuteScalar(string sql, IDbTransaction transaction = null)
         {
             var res = _connection.ExecuteScalar(sql, transaction);
+            RecordSql(sql);
             _connection.Close();
             return res;
         }
@@ -93,13 +98,16 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
         public int ExecuteCommand(string sql, dynamic parameters = null, IDbTransaction transaction = null)
         {
             var res = _connection.Execute(sql, parameters as object, transaction);
+            var item = parameters as Dictionary<string, string>;
             _connection.Close();
             return res;
         }
 
         public IEnumerable<TModel> ExecuteQuery<TModel>(string sql, dynamic parameters = null, IDbTransaction transaction = null) where TModel : BaseEntity
         {
-            throw new NotImplementedException();
+            IEnumerable<TModel> res = _connection.Query<TModel>(sql, parameters as object, transaction);
+            _connection.Close();
+            return res;
         }
 
         public int ExecuteStoredProcedure(string storedProcedureName, params object[] parameters)
@@ -129,6 +137,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
 
             var mod = _connection.Query<TEntity>(modSql.Item1, args).FirstOrDefault();
             _connection.Close();
+            RecordSql(modSql);
             return mod;
         }
 
@@ -141,6 +150,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
             var modResult = _connection.Query<TEntity>(modSql.Item1, args);
             _connection.Close();
+            RecordSql(modSql);
             return modResult.SingleOrDefault();
         }
 
@@ -153,6 +163,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
             modResult = _connection.Query<TEntity>(modSql.Item1, args);
             _connection.Close();
+            RecordSql(modSql);
             return modResult.ToList();
         }
 
@@ -165,6 +176,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
             int modResult = _connection.Execute(modSql.Item1, args, transaction);
             _connection.Close();
+            RecordSql(modSql);
             return modResult;
         }
 
@@ -178,6 +190,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
 
             int delResult = _connection.Execute(delSql.Item1, args, transaction);
             _connection.Close();
+            RecordSql(delSql);
             return delResult;
         }
 
@@ -187,5 +200,43 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
             return First(filterExpression);
         }
 
+        public async void RecordSql(string sqlText)
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                if (string.IsNullOrWhiteSpace(sqlText)) throw new Exception("解析Sql不能为空");
+                LogManage.Sql.Info(sqlText);
+            });
+        }
+        public async void RecordSql(Tuple<string, IDbDataParameter[]> tuple)
+        {
+            await Task.Factory.StartNew(() =>
+            {
+                if (string.IsNullOrWhiteSpace(tuple.Item1)) throw new Exception("解析Sql不能为空");
+                string sqlText = tuple.Item1;
+                IDbDataParameter[] dbParams = tuple.Item2;
+                if (dbParams != null && dbParams.Count() > 0)
+                {
+                    var sqlTemp = sqlText;
+                    dbParams.ToList().ForEach(p =>
+                    {
+                        string parameterName = p.ParameterName;
+                        if (p.DbType == DbType.String)
+                        {
+                            sqlTemp = sqlTemp.Replace(parameterName, $"'{p.Value}'");
+                        }
+                        else if (p.DbType == DbType.Int32)
+                        {
+                            sqlTemp = sqlTemp.Replace(parameterName, $"{p.Value}");
+                        }
+                    });
+                    LogManage.Sql.Info(sqlTemp);
+                }
+                else
+                {
+                    LogManage.Sql.Info(sqlText);
+                }
+            });
+        }
     }
 }

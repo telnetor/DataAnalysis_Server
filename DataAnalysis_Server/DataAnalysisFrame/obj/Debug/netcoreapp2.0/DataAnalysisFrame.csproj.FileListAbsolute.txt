@@ -20,3 +20,4 @@ F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysisFrame\bin\Debug\netcorea
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysisFrame\bin\Debug\netcoreapp2.0\DataAnalysis.Manipulation.dll
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysisFrame\bin\Debug\netcoreapp2.0\DataAnalysis.Manipulation.pdb
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysisFrame\bin\Debug\netcoreapp2.0\DataAnalysis.Component.Tools.pdb
+F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysisFrame\bin\Debug\netcoreapp2.0\NLog.config
