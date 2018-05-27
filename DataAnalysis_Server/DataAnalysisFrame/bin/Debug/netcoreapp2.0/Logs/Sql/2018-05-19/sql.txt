@@ -1,0 +1,2 @@
+2018-05-19 12:23:01.1723 | Info | SELECT * FROM Test WHERE TsId=@TsId AND TsName=@TsName 
+2018-05-19 12:24:17.0198 | Info | SELECT * FROM Test WHERE  TsId = 1 AND  TsName = SmallHan  

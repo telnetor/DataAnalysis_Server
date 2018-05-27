@@ -1,9 +1,9 @@
 ﻿using Dapper;
 using DataAnalysis.Component.Tools.Common;
 using DataAnalysis.Component.Tools.Log;
-using DataAnalysis.Core.Data.Entity.UnitTestEntity;
+using DataAnalysis.Core.Data.Entity;
+using DataAnalysis.Core.Data.Enum;
 using DataAnalysis.Core.Data.IRepositories;
-using DataAnalysis.Manipulation;
 using DataAnalysis.Manipulation.Base;
 using DataAnalysis.Manipulation.BuildSQLText;
 using DataAnalysis.Manipulation.DapperExtension;
@@ -12,8 +12,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAnalysis.Core.Data.Repository.Repositories
 {
@@ -23,6 +21,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
 
         public IUnitOfWork UnitOfWork { get; }
         private readonly GenerateSql<TEntity> _generateSql;
+        private readonly RecordInvokeSql<TEntity> _recordInvokeSql;
 
         public BaseRepository(IUnitOfWork unitOfWork)
         {
@@ -30,6 +29,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
             _connection = unitOfWork.DbConnection;
             _generateSql = new GenerateSqlMssql<TEntity>();
             var dbProvider = unitOfWork.DbProviderConfig.ProviderFactoryString;
+            _recordInvokeSql = new RecordInvokeSql<TEntity>();
             switch (dbProvider)
             {
                 case "MySql.Data.MySqlClient":
@@ -50,64 +50,139 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 UnitOfWork.Dispose();
         }
 
-        public int Add<TModel>(TModel entity, IDbTransaction transaction = null) where TModel : BaseEntity, new()
+        public ResponseMsg<int> Add<TModel>(TModel entity, IDbTransaction transaction = null) where TModel : BaseEntity, new()
         {
-            var addSql = _generateSql.GenerateInsertSqlTextAndParam();
-            var args = new DynamicParameters(entity);
-            if (addSql.Item2 != null)
-                addSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value, p.DbType, p.Direction));
-
-            string idtName = _generateSql.GetIdentityFields();//获得自增长列名
+            ResponseMsg<int> responseMsg = new ResponseMsg<int>();
+            Tuple<string, IDbDataParameter[]> addSql =null;
+            DynamicParameters args = new DynamicParameters();
+            string idtName = string.Empty;
             int addResult = 0;
-            if (!string.IsNullOrEmpty(idtName))
+            try
             {
-                addResult = _connection.ExecuteScalar<int>(addSql.Item1, args, transaction);
-                var dic = new Dictionary<string, object> { { idtName, addResult } };
-                ReflectionHelper.SetPropertyValue(entity, dic);//设置自增长id的值
+                addSql = _generateSql.GenerateInsertSqlTextAndParam();
+                args = new DynamicParameters(entity);
+                if (addSql.Item2 != null)
+                    addSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value, p.DbType, p.Direction));
+                idtName = _generateSql.GetIdentityFields();//获得自增长列名
+                if (!string.IsNullOrEmpty(idtName))
+                {
+                    addResult = _connection.ExecuteScalar<int>(addSql.Item1, args, transaction);
+                    var dic = new Dictionary<string, object> { { idtName, addResult } };
+                    ReflectionHelper.SetPropertyValue(entity, dic);//设置自增长id的值
+                }
+                else
+                {
+                    addResult = _connection.Execute(addSql.Item1, args, transaction);
+                }
+                if (addResult > 0)
+                {
+                    responseMsg = responseMsg.Ok(addResult);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                addResult = _connection.Execute(addSql.Item1, args, transaction);
+                _recordInvokeSql.RecordSql<TModel>(entity, addSql.Item1, idtName);
+                responseMsg = responseMsg.Error(ex);
+                LogManage.Error.Debug(ex.Message);
             }
-            _connection.Dispose();
-            RecordSql(addSql.Item1);
-            return addResult;
+            finally
+            {
+                _connection.Dispose();
+            }
+        
+            return responseMsg;
         }
 
-        public long Count(Expression<Func<TEntity, bool>> filterExpression)
+        public ResponseMsg<int> Count(Expression<Func<TEntity, bool>> filterExpression)
         {
-            var modSql = _generateSql.GenerateCountSqlTextAndParam(filterExpression);
-
+            ResponseMsg<int> responseMsg = new ResponseMsg<int>();
+            Tuple<string, IDbDataParameter[]> modSql = null;
             var args = new DynamicParameters();
-            if (modSql.Item2 != null)
-                modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
-            var modResult = _connection.ExecuteScalar<int>(modSql.Item1, args);
-            _connection.Close();
-            RecordSql(modSql);
-            return modResult;
+            try
+            {
+                modSql = _generateSql.GenerateCountSqlTextAndParam(filterExpression);
+                if (modSql.Item2 != null)
+                    modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
+                var modResult = _connection.ExecuteScalar<int>(modSql.Item1, args);
+                responseMsg=responseMsg.Ok(modResult);
+            }
+            catch (Exception ex)
+            {
+                responseMsg=responseMsg.Error(ex);
+                _recordInvokeSql.RecordSql(modSql);
+                LogManage.Error.Debug(ex.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return responseMsg;
         }
 
-        public object ExcuteScalar(string sql, IDbTransaction transaction = null)
+        public ResponseMsg<object> ExcuteScalar(string sql, IDbTransaction transaction = null)
         {
-            var res = _connection.ExecuteScalar(sql, transaction);
-            RecordSql(sql);
-            _connection.Close();
-            return res;
+            object res = new object();
+            ResponseMsg<object> responseMsg = new ResponseMsg<object>();
+            try
+            {
+                res = _connection.ExecuteScalar(sql, transaction);
+                responseMsg = responseMsg.Ok(res);
+            }
+            catch (Exception ex)
+            {
+                responseMsg.Error(ex);
+                _recordInvokeSql.RecordSql(sql);
+                LogManage.Error.Debug(ex.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return responseMsg;
         }
 
-        public int ExecuteCommand(string sql, dynamic parameters = null, IDbTransaction transaction = null)
+        public ResponseMsg<int> ExecuteCommand(string sql, dynamic parameters = null, IDbTransaction transaction = null)
         {
-            var res = _connection.Execute(sql, parameters as object, transaction);
-            var item = parameters as Dictionary<string, string>;
-            _connection.Close();
-            return res;
+            ResponseMsg<int> responseMsg = new ResponseMsg<int>();
+            int res = 0;
+            try
+            {
+                res = _connection.Execute(sql, parameters as object, transaction);
+                responseMsg = responseMsg.Ok(res);
+            }
+            catch (Exception ex)
+            {
+                responseMsg=responseMsg.Error(ex);
+                _recordInvokeSql.RecordSql(sql);
+                LogManage.Error.Debug(ex.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return responseMsg;
         }
 
-        public IEnumerable<TModel> ExecuteQuery<TModel>(string sql, dynamic parameters = null, IDbTransaction transaction = null) where TModel : BaseEntity
+        public ResponseMsg<IEnumerable<TModel>> ExecuteQuery<TModel>(string sql, dynamic parameters = null, IDbTransaction transaction = null) where TModel : BaseEntity
         {
-            IEnumerable<TModel> res = _connection.Query<TModel>(sql, parameters as object, transaction);
-            _connection.Close();
-            return res;
+            ResponseMsg<IEnumerable<TModel>> responseMsg = new ResponseMsg<IEnumerable<TModel>>();
+            IEnumerable<TModel> res = null;
+            try
+            {
+                res = _connection.Query<TModel>(sql, parameters as object, transaction);
+                responseMsg = responseMsg.Ok(res);
+            }
+            catch (Exception ex)
+            {
+                responseMsg=responseMsg.Error(ex);
+                _recordInvokeSql.RecordSql(sql);
+                LogManage.Error.Debug(ex.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return responseMsg;
         }
 
         public int ExecuteStoredProcedure(string storedProcedureName, params object[] parameters)
@@ -122,121 +197,169 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
             return _connection.Query<TModel>(storedProcedureName, parameters.Length > 0 ? parameters[0] : null);
         }
 
-        public bool Exists(Expression<Func<TEntity, bool>> filterExpression)
+        public ResponseMsg<bool> Exists(Expression<Func<TEntity, bool>> filterExpression)
         {
-            return Count(filterExpression) > 0;
+            ResponseMsg<int> responseMsg = Count(filterExpression);
+            ResponseMsg<bool> response = new ResponseMsg<bool>();
+            if (responseMsg.StatusCode == (int)StatusCodeEnum.Success)
+            {
+                response=response.Ok(responseMsg.Data > 0);
+            }
+            else
+            {
+                response=response.Error(new Exception(responseMsg.StatusMsg));
+            }
+            return response;
         }
 
-        public TEntity First(Expression<Func<TEntity, bool>> filterExpression, Expression<Func<IQueryable<TEntity>, IQueryable<TEntity>>> orderByExpression = null)
+        public ResponseMsg<TEntity> First(Expression<Func<TEntity, bool>> filterExpression, Expression<Func<IQueryable<TEntity>, IQueryable<TEntity>>> orderByExpression = null)
         {
-            var modSql = _generateSql.GenerateGetFristSqlText(filterExpression, orderByExpression);
+            ResponseMsg<TEntity> responseMsg = new ResponseMsg<TEntity>();
+            Tuple<string, IDbDataParameter[]> modSql = null;
+            DynamicParameters args = new DynamicParameters();
+            try
+            {
+                modSql = _generateSql.GenerateGetFristSqlText(filterExpression, orderByExpression);
+                args = new DynamicParameters();
+                if (modSql.Item2 != null)
+                    modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
+                var mod = _connection.Query<TEntity>(modSql.Item1, args).FirstOrDefault();
+                responseMsg=responseMsg.Ok(mod);
+            }
+            catch (Exception ex)
+            {
+                _connection.Close();
+                responseMsg = responseMsg.Error(ex);
+                _recordInvokeSql.RecordSql(modSql.Item1);
+                LogManage.Error.Debug(ex);
+            }
 
-            var args = new DynamicParameters();
-            if (modSql.Item2 != null)
-                modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
-
-            var mod = _connection.Query<TEntity>(modSql.Item1, args).FirstOrDefault();
-            _connection.Close();
-            RecordSql(modSql);
-            return mod;
+            return responseMsg;
         }
 
-        public TEntity Get(params object[] keyValues)
+        public ResponseMsg<TEntity> Get(params object[] keyValues)
         {
-            var modSql = _generateSql.GenerateGetByKeySqlText(keyValues);
-
-            var args = new DynamicParameters();
-            if (modSql.Item2 != null)
-                modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
-            var modResult = _connection.Query<TEntity>(modSql.Item1, args);
-            _connection.Close();
-            RecordSql(modSql);
-            return modResult.SingleOrDefault();
+            Tuple<string, IDbDataParameter[]> modSql = null;
+            DynamicParameters args = new DynamicParameters();
+            ResponseMsg<TEntity> responseMsg = new ResponseMsg<TEntity>();
+            try
+            {
+                modSql = _generateSql.GenerateGetByKeySqlText(keyValues);
+                args = new DynamicParameters();
+                if (modSql.Item2 != null)
+                    modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
+                var modResult = _connection.Query<TEntity>(modSql.Item1, args);
+                responseMsg=responseMsg.Ok(modResult.SingleOrDefault());
+            }
+            catch (Exception ex)
+            {
+                _connection.Close();
+                responseMsg = responseMsg.Error(ex);
+                _recordInvokeSql.RecordSql(modSql.Item1);
+                LogManage.Error.Debug(ex);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return responseMsg;
         }
 
-        public List<TEntity> GetList(Expression<Func<TEntity, bool>> filterExpression = null, Expression<Func<IQueryable<TEntity>, IQueryable<TEntity>>> orderByExpression = null, Expression<Func<TEntity, TEntity>> selectExpression = null)
+        public ResponseMsg<List<TEntity>> GetList(Expression<Func<TEntity, bool>> filterExpression = null, Expression<Func<IQueryable<TEntity>, IQueryable<TEntity>>> orderByExpression = null, Expression<Func<TEntity, TEntity>> selectExpression = null)
         {
+            ResponseMsg<List<TEntity>> responseMsg = new ResponseMsg<List<TEntity>>();
             IEnumerable<TEntity> modResult = null;
-            var modSql = _generateSql.GenerateGetListSqlText(filterExpression, orderByExpression, selectExpression);
-            var args = new DynamicParameters();
-            if (modSql.Item2 != null)
-                modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
-            modResult = _connection.Query<TEntity>(modSql.Item1, args);
-            _connection.Close();
-            RecordSql(modSql);
-            return modResult.ToList();
-        }
-
-        public int Modify(Expression<Func<TEntity, TEntity>> updateExpression, Expression<Func<TEntity, bool>> filterExpression, IDbTransaction transaction = null)
-        {
-            var modSql = _generateSql.GenerateUpdateSqlTextAndParam(updateExpression, filterExpression);
-
-            var args = new DynamicParameters();
-            if (modSql.Item2 != null)
-                modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
-            int modResult = _connection.Execute(modSql.Item1, args, transaction);
-            _connection.Close();
-            RecordSql(modSql);
-            return modResult;
-        }
-
-        public int Remove(Expression<Func<TEntity, bool>> filterExpression, IDbTransaction transaction = null)
-        {
-            var delSql = _generateSql.GenerateDeleteSqlTextAndParam(filterExpression);
-
-            var args = new DynamicParameters();
-            if (delSql.Item2 != null)
-                delSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
-
-            int delResult = _connection.Execute(delSql.Item1, args, transaction);
-            _connection.Close();
-            RecordSql(delSql);
-            return delResult;
-        }
-
-        public TEntity Single(Expression<Func<TEntity, bool>> filterExpression)
-        {
-            if (Count(filterExpression) > 1 || Count(filterExpression) == 0) throw new Exception("The query does not return exactly one item.");
-            return First(filterExpression);
-        }
-
-        public async void RecordSql(string sqlText)
-        {
-            await Task.Factory.StartNew(() =>
+            Tuple<string, IDbDataParameter[]> modSql = null;
+            DynamicParameters args = new DynamicParameters();
+            try
             {
-                if (string.IsNullOrWhiteSpace(sqlText)) throw new Exception("解析Sql不能为空");
-                LogManage.Sql.Info(sqlText);
-            });
-        }
-        public async void RecordSql(Tuple<string, IDbDataParameter[]> tuple)
-        {
-            await Task.Factory.StartNew(() =>
+                modSql = _generateSql.GenerateGetListSqlText(filterExpression, orderByExpression, selectExpression);
+                args = new DynamicParameters();
+                if (modSql.Item2 != null)
+                    modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
+                modResult = _connection.Query<TEntity>(modSql.Item1, args);
+                responseMsg=responseMsg.Ok(modResult.ToList());
+            }
+            catch (Exception ex)
             {
-                if (string.IsNullOrWhiteSpace(tuple.Item1)) throw new Exception("解析Sql不能为空");
-                string sqlText = tuple.Item1;
-                IDbDataParameter[] dbParams = tuple.Item2;
-                if (dbParams != null && dbParams.Count() > 0)
-                {
-                    var sqlTemp = sqlText;
-                    dbParams.ToList().ForEach(p =>
-                    {
-                        string parameterName = p.ParameterName;
-                        if (p.DbType == DbType.String)
-                        {
-                            sqlTemp = sqlTemp.Replace(parameterName, $"'{p.Value}'");
-                        }
-                        else if (p.DbType == DbType.Int32)
-                        {
-                            sqlTemp = sqlTemp.Replace(parameterName, $"{p.Value}");
-                        }
-                    });
-                    LogManage.Sql.Info(sqlTemp);
-                }
-                else
-                {
-                    LogManage.Sql.Info(sqlText);
-                }
-            });
+                _connection.Close();
+                responseMsg = responseMsg.Error(ex);
+                _recordInvokeSql.RecordSql(modSql.Item1);
+                LogManage.Error.Debug(ex);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return responseMsg;
+        }
+
+        public ResponseMsg<int> Modify(Expression<Func<TEntity, TEntity>> updateExpression, Expression<Func<TEntity, bool>> filterExpression, IDbTransaction transaction = null)
+        {
+            Tuple<string, IDbDataParameter[]> modSql = null;
+            DynamicParameters args = new DynamicParameters();
+            ResponseMsg<int> responseMsg = new ResponseMsg<int>();
+            try
+            {
+                modSql = _generateSql.GenerateUpdateSqlTextAndParam(updateExpression, filterExpression);
+                args = new DynamicParameters();
+                if (modSql.Item2 != null)
+                    modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
+                int modResult = _connection.Execute(modSql.Item1, args, transaction);
+                responseMsg=responseMsg.Ok(modResult);
+            }
+            catch (Exception ex)
+            {
+                LogManage.Error.Debug(ex);
+                _recordInvokeSql.RecordSql(modSql.Item1);
+                responseMsg=responseMsg.Error(ex);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+          
+            return responseMsg;
+        }
+
+        public ResponseMsg<int> Remove(Expression<Func<TEntity, bool>> filterExpression, IDbTransaction transaction = null)
+        {
+            Tuple<string, IDbDataParameter[]> delSql = null;
+            DynamicParameters args = new DynamicParameters();
+            ResponseMsg<int> responseMsg = new ResponseMsg<int>();
+            int delResult = 0;
+            try
+            {
+                delSql = _generateSql.GenerateDeleteSqlTextAndParam(filterExpression);
+                args = new DynamicParameters();
+                if (delSql.Item2 != null)
+                    delSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
+                delResult = _connection.Execute(delSql.Item1, args, transaction);
+                responseMsg=responseMsg.Ok(delResult);
+            }
+            catch (Exception ex)
+            {
+                LogManage.Error.Debug(ex);
+                _recordInvokeSql.RecordSql(delSql.Item1);
+                responseMsg=responseMsg.Error(ex);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+            return responseMsg;
+        }
+
+        public ResponseMsg<TEntity> Single(Expression<Func<TEntity, bool>> filterExpression)
+        {
+            ResponseMsg<int> response = Count(filterExpression);
+            if (response.StatusCode == (int)StatusCodeEnum.Success)
+            {
+                if (response.Data > 1 || response.Data == 0) throw new Exception("The query does not return exactly one item.");
+                return First(filterExpression);
+            }
+            ResponseMsg<TEntity> responseMsg = new ResponseMsg<TEntity>();
+            return responseMsg.Error(new Exception(response.StatusMsg));
         }
     }
 }

@@ -7,6 +7,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
 using DataAnalysis.Core.Data.Repository.Repositories.UnitRepository;
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -30,7 +31,7 @@ namespace DataAnalysisFrame
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddConfig(Configuration);
+            services.AddHangfire(r => r.UseSqlServerStorage(Configuration.GetSection("Hangfire")["HangfireDB"]));
             services.BuildServiceProvider();
             return services.AddInjection();
         }
@@ -43,7 +44,17 @@ namespace DataAnalysisFrame
                 app.UseDeveloperExceptionPage();
             }
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            //启动websocket
+            WebSocketExtensions.WebSocketStart();
+
             env.ConfigureNLog("Nlog.config");//读取Nlog配置文件
+
+            //启动Hangfire服务
+            app.UseHangfireServer();
+            //启动hangfire面板
+            app.UseHangfireDashboard();
+            app.RunTask();
+
             app.UseMvc();
         }
     }

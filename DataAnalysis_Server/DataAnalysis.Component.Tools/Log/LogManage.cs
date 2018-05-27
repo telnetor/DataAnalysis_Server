@@ -30,5 +30,24 @@ namespace DataAnalysis.Component.Tools.Log
             }
         }
 
+        static ILogger _WebSocket = LogManager.GetLogger("WebSocket");
+
+        public static ILogger WebSocket
+        {
+            get
+            {
+                return _WebSocket;
+            }
+        }
+
+        static ILogger _Job = LogManager.GetLogger("Job");
+
+        public static ILogger Job
+        {
+            get
+            {
+                return _Job;
+            }
+        }
     }
 }

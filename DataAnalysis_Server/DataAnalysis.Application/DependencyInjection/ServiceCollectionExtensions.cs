@@ -1,9 +1,15 @@
 ﻿
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using DataAnalysis.Application.IService;
+using DataAnalysis.Application.IService.IJobService;
+using DataAnalysis.Application.Service;
+using DataAnalysis.Application.Service.JobService;
+using DataAnalysis.Component.Tools.Cache;
 using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
 using DataAnalysis.Core.Data.Repository.Repositories.UnitRepository;
 using DataAnalysis.Manipulation.DapperExtension;
+using DataAnalysis.Manipulation.WebSocketExtension;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -18,10 +24,17 @@ namespace DataAnalysisFrame
         {
             var builder = new ContainerBuilder();
             SetupResolveRules(builder);
+
+            #region service 层注入
+            builder.RegisterType<AmplitudeService>().As<IAmplitudeService>();
+            builder.RegisterType<ExecuteQueueService>().As<IExecuteQueueService>();
+            #endregion
             builder.RegisterType<DbProviderConfig>().As<IDbProviderConfig>().SingleInstance();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
             builder.Populate(services);
             Autofac.IContainer ApplicationContainer = builder.Build();
+            ServerLocation.SetServerLocation(ApplicationContainer);
+
             return new AutofacServiceProvider(ApplicationContainer);
         }
         private static void SetupResolveRules(ContainerBuilder builder)

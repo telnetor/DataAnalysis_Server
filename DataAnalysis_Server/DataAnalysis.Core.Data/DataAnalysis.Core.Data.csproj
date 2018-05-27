@@ -8,4 +8,8 @@
     <ProjectReference Include="..\DataAnalysis.Manipulation\DataAnalysis.Manipulation.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="WebSocketEntity\" />
+  </ItemGroup>
+
 </Project>

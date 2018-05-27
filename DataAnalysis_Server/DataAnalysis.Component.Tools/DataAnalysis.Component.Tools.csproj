@@ -6,16 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Cache\" />
-    <Folder Include="Constant\" />
     <Folder Include="Http\" />
     <Folder Include="Quartz\" />
-    <Folder Include="Config\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.5.4" />
+    <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
+    <PackageReference Include="WebSocket4Net" Version="0.15.2" />
   </ItemGroup>
 
 </Project>

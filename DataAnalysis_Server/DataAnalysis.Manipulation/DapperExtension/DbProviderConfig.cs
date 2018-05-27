@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DataAnalysis.Component.Tools.Settings;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,12 +18,13 @@ namespace DataAnalysis.Manipulation.DapperExtension
 
         public string ProviderFactoryString {
             get {
-                var builder = new ConfigurationBuilder()
-                          .SetBasePath(Directory.GetCurrentDirectory())
-                          .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                Configuration = builder.Build();
-                connection = Configuration.GetSection("MySql")["ProviderName"];
-                return connection;
+                return AppSetting.GetConnection("MySql", "ProviderName");
+                //var builder = new ConfigurationBuilder()
+                //          .SetBasePath(Directory.GetCurrentDirectory())
+                //          .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                //Configuration = builder.Build();
+                //connection = Configuration.GetSection("MySql")["ProviderName"];
+                //return connection;
             }
 
          }
@@ -30,12 +32,13 @@ namespace DataAnalysis.Manipulation.DapperExtension
         public string DbConnectionString {
             get
             {
-                var builder = new ConfigurationBuilder()
-                          .SetBasePath(Directory.GetCurrentDirectory())
-                          .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-                Configuration = builder.Build();
-                connection = Configuration.GetSection("MySql")["DataAnalysisDB"];
-                return connection;
+                return AppSetting.GetConnection("MySql", "DataAnalysisDB");
+                //var builder = new ConfigurationBuilder()
+                //          .SetBasePath(Directory.GetCurrentDirectory())
+                //          .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                //Configuration = builder.Build();
+                //connection = Configuration.GetSection("MySql")["DataAnalysisDB"];
+                //return connection;
             }
         }
 

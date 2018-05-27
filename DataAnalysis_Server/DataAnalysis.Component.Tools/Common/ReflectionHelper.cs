@@ -212,6 +212,19 @@ namespace DataAnalysis.Component.Tools.Common
             T rAttrObj = attrObj as T;
             return rAttrObj;
         }
+        public static Dictionary<string, object> GetStaticPropertyNameAndValue(Type type)
+        {
+            Dictionary<string, object> pNameAndValue = new Dictionary<string, object>();
+            foreach (var field in type.GetFields())
+            {
+                if (!string.IsNullOrWhiteSpace(field.Name))
+                {
+                    object value = type.GetField(field.Name).GetValue(null);
+                    pNameAndValue.Add(field.Name, value);
+                }
+            }
+            return pNameAndValue;
+        }
 
 
     }
@@ -293,5 +306,6 @@ namespace DataAnalysis.Component.Tools.Common
                 }
             }
         }
+
     }
 }

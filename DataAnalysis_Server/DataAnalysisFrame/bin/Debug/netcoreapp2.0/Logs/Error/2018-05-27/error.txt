@@ -1,0 +1,5 @@
+2018-05-27 10:40:54.7832 | Debug | System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Manipulation.WebSocketExtension.HuoBiMessageReceivedEventArgs.InsertDataToQueue() in F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis.Manipulation\WebSocketExtension\HuoBiMessageReceivedEventArgs.cs:line 27 System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Manipulation.WebSocketExtension.HuoBiMessageReceivedEventArgs.InsertDataToQueue() in F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis.Manipulation\WebSocketExtension\HuoBiMessageReceivedEventArgs.cs:line 27 
+ WebSocketBehavior.ReceviedMsg => HuoBiMessageReceivedEventArgs..ctor => HuoBiMessageReceivedEventArgs.InsertDataToQueue 
+
