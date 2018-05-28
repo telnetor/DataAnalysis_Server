@@ -29,19 +29,19 @@ namespace DataAnalysis.Application.Service.BitService
         {
             var bidsList = CalcBuyVolume(receiveData);
             var asksList = CalcSellingVolume(receiveData);
-            string bidsJson=AnalysisBuyDepth(bidsList);
+            string bidsJson = AnalysisBuyDepth(bidsList);
             string asksJson = AnalysisSellingDepth(asksList);
 
-            var dic=GetPairs(receiveData.ch);
+            var dic = GetPairs(receiveData.ch);
             string bitName = dic.Keys.Contains(CRRENCY_NAME) ? dic[CRRENCY_NAME] : string.Empty;
-            InsertToRedis(bidsJson, bitName+":buy", receiveData.tick.ts);
-            InsertToRedis(asksJson, bitName+":selling", receiveData.tick.ts);
+            InsertToRedis(bidsJson, bitName + ":buy", receiveData.tick.ts);
+            InsertToRedis(asksJson, bitName + ":selling", receiveData.tick.ts);
         }
 
         /// <summary>
         /// 插入到redis，格式 币种:时间戳:json
         /// </summary>
-        private void InsertToRedis(string json,string bitName,long tc)
+        private void InsertToRedis(string json, string bitName, long tc)
         {
             _iCacheManager.Insert(string.Format("{0}:{1}", bitName, tc), json, DateTime.Now.AddMinutes(2));
         }
@@ -50,52 +50,39 @@ namespace DataAnalysis.Application.Service.BitService
         /// 分析Depth买入得数据
         /// </summary>
         /// <param name="list"></param>
-        private  string AnalysisBuyDepth(List<DepthTempEntity> list)
+        private string AnalysisBuyDepth(List<DepthTempEntity> list)
         {
-            /*最大成交量, 最大成交量的价格,最大成交量金额
-              最小成交量,最小成交量价格，最小成交量金额
-              总成交量,总成交金额
-              卖出和买入之前成交量得差异，成交金额得差异
-            */
-
-            var maxAccount = list.Max(p => p.SingleTotal);
-            //单笔最高价格对应的成交量
-            var maxVolume = list.Where(p => p.SingleTotal == maxAccount).First().SingleVolume;
-            //单笔最高价格对应价格
-            var maxPrice = list.Where(p => p.SingleTotal == maxAccount).First().SinglePrice;
-
-
-            var minAccount = list.Min(p => p.SingleTotal);
-            //单笔最低价格对应的成交量
-            var minVolume = list.Where(p => p.SingleTotal == minAccount).First().SingleVolume;
-            //单笔最低价格对应的价格
-            var minPrice = list.Where(p => p.SingleTotal == minAccount).First().SinglePrice;
-
-            //单笔最高价格
-            var maxSinglePrice = list.Max(p => p.SinglePrice);
-            //单笔最低价格
-            var minSinglePrice = list.Min(p => p.SinglePrice);
-
+            /*
+             * 以价格升序，分成10个区间，计算每个区间占有的值
+             *  总成交量,总成交金额
+             */
+            var orderlist = list.OrderBy(p => p.SinglePrice);
             //总成交量
             var totalVolumn = list.Sum(p => p.SingleVolume);
             //总成交价格
             var totalPrice = list.Sum(p => p.SingleTotal);
+
+            var sectionDic = new Dictionary<string, string>();
+            //以10分为一个区间
+            var section = orderlist.Count() / 15;
+            int pageSize = 15;
+            for (var i = 0; i < section; i++)
+            {
+                var tempList = orderlist.Skip(i * pageSize).Take(15).ToList();
+                //取第一个和最后一个 的总价作为字典KEY
+                var firstPrice = tempList.FirstOrDefault().SinglePrice;
+                var lastPrice = tempList.LastOrDefault().SinglePrice;
+                sectionDic.Add($"{firstPrice}-{lastPrice}", tempList.Sum(p => p.SingleTotal).ToString("0.000000"));
+
+            }
             var res = new
             {
-                maxVolume = maxVolume.ToString("0.0000"),
-                maxPrice = maxPrice.ToString("0.000000"),
-                maxAccount = maxAccount.ToString("0.000000"),
-                minAccount = minAccount.ToString("0.000000"),
-                minVolume = minVolume.ToString("0.0000"),
-                minPrice = minPrice.ToString("0.000000"),
-                maxSinglePrice = maxSinglePrice.ToString("0.000000"),
-                minSinglePrice = minSinglePrice.ToString("0.000000"),
                 totalVolumn = totalVolumn.ToString("0.0000"),
-                totalPrice = totalPrice.ToString("0.000000")
-
+                totalPrice = totalPrice.ToString("0.000000"),
+                section = sectionDic
             };
             string json = JsonConvert.SerializeObject(res);
-            Trace.WriteLine(json);
+            //Trace.WriteLine(json);
             return json;
         }
 
@@ -105,50 +92,37 @@ namespace DataAnalysis.Application.Service.BitService
         /// <param name="list"></param>
         private string AnalysisSellingDepth(List<DepthTempEntity> list)
         {
-            /*最大成交量, 最大成交量的价格,最大成交量金额
-              最小成交量,最小成交量价格，最小成交量金额
-              总成交量,总成交金额
-              卖出和买入之前成交量得差异，成交金额得差异
+            /*
+              * 以价格升序，分成10个区间，计算每个区间占有的值
+              *  总成交量,总成交金额
             */
-
-            var maxAccount = list.Max(p => p.SingleTotal);
-            //单笔最高价格对应的成交量
-            var maxVolume = list.Where(p => p.SingleTotal == maxAccount).First().SingleVolume;
-            //单笔最高价格对应价格
-            var maxPrice = list.Where(p => p.SingleTotal == maxAccount).First().SinglePrice;
-
-
-            var minAccount = list.Min(p => p.SingleTotal);
-            //单笔最低价格对应的成交量
-            var minVolume = list.Where(p => p.SingleTotal == minAccount).First().SingleVolume;
-            //单笔最低价格对应的价格
-            var minPrice = list.Where(p => p.SingleTotal == minAccount).First().SinglePrice;
-
-            //单笔最高价格
-            var maxSinglePrice = list.Max(p => p.SinglePrice);
-            //单笔最低价格
-            var minSinglePrice = list.Min(p => p.SinglePrice);
-
+            var orderlist = list.OrderBy(p => p.SinglePrice);
             //总成交量
             var totalVolumn = list.Sum(p => p.SingleVolume);
             //总成交价格
             var totalPrice = list.Sum(p => p.SingleTotal);
 
+            var sectionDic = new Dictionary<string, string>();
+            //以10分为一个区间
+            var section = orderlist.Count() / 15;
+            int pageSize = 15;
+            for (var i = 0; i < section; i++)
+            {
+                var tempList = orderlist.Skip(i * pageSize).Take(15).ToList();
+                //取第一个和最后一个 的总价作为字典KEY
+                var firstPrice = tempList.FirstOrDefault().SinglePrice;
+                var lastPrice = tempList.LastOrDefault().SinglePrice;
+                sectionDic.Add($"{firstPrice}-{lastPrice}", tempList.Sum(p => p.SingleTotal).ToString("0.000000"));
+
+            }
             var res = new
             {
-                maxVolume = maxVolume.ToString("0.0000"),
-                maxPrice = maxPrice.ToString("0.000000"),
-                maxAccount = maxAccount.ToString("0.000000"),
-                minAccount = minAccount.ToString("0.000000"),
-                minVolume = minVolume.ToString("0.0000"),
-                minPrice = minPrice.ToString("0.000000"),
-                maxSinglePrice = maxSinglePrice.ToString("0.000000"),
-                minSinglePrice = minSinglePrice.ToString("0.000000"),
                 totalVolumn = totalVolumn.ToString("0.0000"),
-                totalPrice = totalPrice.ToString("0.000000")
-
+                totalPrice = totalPrice.ToString("0.000000"),
+                section = sectionDic
             };
-            string json= JsonConvert.SerializeObject(res);
+            string json = JsonConvert.SerializeObject(res);
+            //Trace.WriteLine(json);
             return json;
 
 
@@ -205,7 +179,7 @@ namespace DataAnalysis.Application.Service.BitService
                     //成交量
                     else if (j == 1)
                     {
-                        tempEntity.SingleVolume =asks[i][j];
+                        tempEntity.SingleVolume = asks[i][j];
                     }
                 }
                 //总价等于 买入价 * 买入成交
