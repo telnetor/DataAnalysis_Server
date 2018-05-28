@@ -1,7 +1,9 @@
 ﻿
+using Autofac;
 using DataAnalysis.Application.Service.BitService;
 using DataAnalysis.Component.Tools.Constant;
 using DataAnalysis.Component.Tools.Enum;
+using DataAnalysisFrame;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,6 +15,7 @@ namespace DataAnalysis.Application.Service
         public static BitBaseService GetSingle(string chType)
         {
             BitBaseService bitBase = null;
+
             var array = chType.Split('.');
             if (array.Length == 4)
             {

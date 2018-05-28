@@ -49,7 +49,7 @@ namespace DataAnalysis.Application.Service.JobService
                                 {
                                     foreach (KeyValuePair<string, string> keyVaule in HuoBiContract.topicDic)
                                     {
-                                        var res=list.Where(p => p.ch.Equals(keyVaule.Key));
+                                        var res = list.Where(p => p.ch.Equals(keyVaule.Key));
                                         if (res.Any())
                                         {
                                             var tempList = list.OrderBy(p => p.tick.ts).ToList();

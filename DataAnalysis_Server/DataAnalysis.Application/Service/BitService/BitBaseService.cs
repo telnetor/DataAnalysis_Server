@@ -11,6 +11,8 @@ using DataAnalysis.Core.Data.BitEntity;
 using DataAnalysis.Core.Data.TempEntity;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using DataAnalysisFrame;
+using Autofac;
 
 namespace DataAnalysis.Application.Service.BitService
 {
@@ -22,7 +24,7 @@ namespace DataAnalysis.Application.Service.BitService
         private string CRRENCY_TYPE = "CrrencyType";
         public BitBaseService()
         {
-            _iCacheManager = new RedisCacheManager();
+            _iCacheManager = ServerLocation._iServiceProvider.Resolve<ICacheManager>();
         }
 
         public virtual void Calc(ReceiveData receiveData)
