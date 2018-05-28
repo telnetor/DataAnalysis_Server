@@ -6870,27 +6870,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\SmallHan\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj",
+      "projectUniqueName": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj",
       "projectName": "DataAnalysis.Application",
-      "projectPath": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Application\\obj\\",
+      "projectPath": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj",
+      "packagesPath": "C:\\Users\\SmallHan\\.nuget\\packages\\",
+      "outputPath": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\SmallHan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
@@ -6902,11 +6899,11 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
-            "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Component.Tools\\DataAnalysis.Component.Tools.csproj": {
-              "projectPath": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Component.Tools\\DataAnalysis.Component.Tools.csproj"
+            "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Component.Tools\\DataAnalysis.Component.Tools.csproj": {
+              "projectPath": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Component.Tools\\DataAnalysis.Component.Tools.csproj"
             },
-            "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Core.Data.Repository\\DataAnalysis.Core.Data.Repository.csproj": {
-              "projectPath": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Core.Data.Repository\\DataAnalysis.Core.Data.Repository.csproj"
+            "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Core.Data.Repository\\DataAnalysis.Core.Data.Repository.csproj": {
+              "projectPath": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Core.Data.Repository\\DataAnalysis.Core.Data.Repository.csproj"
             }
           }
         }

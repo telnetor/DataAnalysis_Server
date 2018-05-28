@@ -10,3 +10,15 @@ F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.dll
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.pdb
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csproj.CopyComplete
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.deps.json
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.dll
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.pdb
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.dll
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.pdb
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csprojResolveAssemblyReference.cache
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csproj.CoreCompileInputs.cache
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.AssemblyInfoInputs.cache
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.AssemblyInfo.cs
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csproj.CopyComplete
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.dll
+E:\Code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.pdb

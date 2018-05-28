@@ -13524,27 +13524,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\SmallHan\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysisFrame\\DataAnalysisFrame.csproj",
+      "projectUniqueName": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysisFrame\\DataAnalysisFrame.csproj",
       "projectName": "DataAnalysisFrame",
-      "projectPath": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysisFrame\\DataAnalysisFrame.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysisFrame\\obj\\",
+      "projectPath": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysisFrame\\DataAnalysisFrame.csproj",
+      "packagesPath": "C:\\Users\\SmallHan\\.nuget\\packages\\",
+      "outputPath": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysisFrame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\SmallHan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -13556,8 +13553,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj": {
-              "projectPath": "F:\\c#\\code\\DataAnalysis\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj"
+            "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj": {
+              "projectPath": "E:\\Code\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis_Server\\DataAnalysis.Application\\DataAnalysis.Application.csproj"
             }
           }
         }

@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DataAnalysis.Manipulation\DataAnalysis.Manipulation.csproj" />
+    <Compile Remove="WebSocketEntity\**" />
+    <EmbeddedResource Remove="WebSocketEntity\**" />
+    <None Remove="WebSocketEntity\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="WebSocketEntity\" />
+    <ProjectReference Include="..\DataAnalysis.Manipulation\DataAnalysis.Manipulation.csproj" />
   </ItemGroup>
 
 </Project>
