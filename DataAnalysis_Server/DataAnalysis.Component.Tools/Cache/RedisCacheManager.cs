@@ -19,6 +19,7 @@ namespace DataAnalysis.Component.Tools.Cache
         string address;
         JsonSerializerSettings jsonConfig = new JsonSerializerSettings() { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore, NullValueHandling = NullValueHandling.Ignore };
         ConnectionMultiplexer connectionMultiplexer;
+        IServer server;
         IDatabase database;
 
         class CacheObject<T>
@@ -34,6 +35,7 @@ namespace DataAnalysis.Component.Tools.Cache
             if (this.address == null || string.IsNullOrWhiteSpace(this.address.ToString()))
                 throw new ApplicationException("配置文件中未找到RedisServer的有效配置");
             connectionMultiplexer = ConnectionMultiplexer.Connect(address);
+            server= connectionMultiplexer.GetServer(address);
             database = connectionMultiplexer.GetDatabase();
         }
 
@@ -52,6 +54,8 @@ namespace DataAnalysis.Component.Tools.Cache
             }
         }
 
+        public string PrefixKey { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         public object Get(string key)
         {
             return Get<object>(key);
@@ -59,7 +63,6 @@ namespace DataAnalysis.Component.Tools.Cache
 
         public T Get<T>(string key)
         {
-
             DateTime begin = DateTime.Now;
             var cacheValue = database.StringGet(key);
             DateTime endCache = DateTime.Now;
@@ -145,5 +148,25 @@ namespace DataAnalysis.Component.Tools.Cache
             return database.KeyExists(key);
         }
 
+        /// <summary>
+        /// 获取所有的Kev
+        /// </summary>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
+        public List<string> GetKeys(string pattern="")
+        {
+            pattern = string.IsNullOrWhiteSpace(pattern) ? "*" : pattern;
+            var keysList = new List<string>();
+            foreach (var key in server.Keys(pattern: pattern))
+            {
+                keysList.Add(key);
+            }
+            return keysList;
+        }
+
+        public string AddKeyPrefix(string key)
+        {
+            return $"{PrefixKey}:{key}";
+        }
     }
 }

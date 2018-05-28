@@ -74,7 +74,7 @@ namespace DataAnalysis.Manipulation.WebSocketExtension
             {
                 if (msg.IndexOf("status")<0)
                 {
-                    System.Diagnostics.Trace.WriteLine(msg);
+                    //System.Diagnostics.Trace.WriteLine(msg);
                     var receviceData = JsonConvert.DeserializeObject<ReceiveData>(msg);
                     OnMessage?.Invoke(null, new HuoBiMessageReceivedEventArgs(receviceData));
                 }

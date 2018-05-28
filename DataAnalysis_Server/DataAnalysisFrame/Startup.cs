@@ -54,7 +54,7 @@ namespace DataAnalysisFrame
             //启动hangfire面板
             app.UseHangfireDashboard();
             app.RunTask();
-
+            //app.RunTimer();
             app.UseMvc();
         }
     }

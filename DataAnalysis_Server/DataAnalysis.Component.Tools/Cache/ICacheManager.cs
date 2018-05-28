@@ -20,6 +20,12 @@ namespace DataAnalysis.Component.Tools.Cache
         /// <param name="key">缓存键</param>
         /// <returns>缓存值</returns>
         object Get(string key);
+
+        /// <summary>
+        ///用来当作 RedisKey 的前缀
+        /// </summary>
+        string PrefixKey { get; set; }
+
         /// <summary>
         /// 获得指定键的缓存值
         /// </summary>
@@ -78,6 +84,20 @@ namespace DataAnalysis.Component.Tools.Cache
         /// 判断key是否存在
         /// </summary>
         bool Exists(string key);
+
+        /// <summary>
+        /// 获取所有的KEY
+        /// </summary>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
+        List<string> GetKeys(string pattern="");
+
+        /// <summary>
+        /// 添加 Key 的前缀
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        string AddKeyPrefix(string key);
 
     }
 }

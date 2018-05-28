@@ -28,7 +28,9 @@ namespace DataAnalysisFrame
             #region service 层注入
             builder.RegisterType<AmplitudeService>().As<IAmplitudeService>();
             builder.RegisterType<ExecuteQueueService>().As<IExecuteQueueService>();
+            builder.RegisterType<ExecuteRedisService>().As<IExecuteRedisService>();
             #endregion
+
             builder.RegisterType<DbProviderConfig>().As<IDbProviderConfig>().SingleInstance();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
             builder.Populate(services);
