@@ -8,11 +8,12 @@ using System.Text;
 using System.Linq;
 using System.Dynamic;
 using DataAnalysis.Core.Data.BitEntity;
-using DataAnalysis.Core.Data.TempEntity;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using DataAnalysisFrame;
 using Autofac;
+using DataAnalysis.Core.Data.Entity.DepthEntity;
+using DataAnalysis.Component.Tools.Log;
 
 namespace DataAnalysis.Application.Service.BitService
 {
@@ -22,22 +23,25 @@ namespace DataAnalysis.Application.Service.BitService
 
         private string CRRENCY_NAME = "CrrencyName";
         private string CRRENCY_TYPE = "CrrencyType";
+        private List<BitDetail> bidsList { get; set; }
+        private List<BitDetail> asksList { get; set; }
+
         public BitBaseService()
         {
             _iCacheManager = ServerLocation._iServiceProvider.Resolve<ICacheManager>();
+            bidsList = new List<BitDetail>();
+            asksList = new List<BitDetail>();
         }
 
         public virtual void Calc(ReceiveData receiveData)
         {
-            var bidsList = CalcBuyVolume(receiveData);
-            var asksList = CalcSellingVolume(receiveData);
-            string bidsJson = AnalysisBuyDepth(bidsList);
-            string asksJson = AnalysisSellingDepth(asksList);
+            CalcBuyVolume(receiveData);
+            CalcSellingVolume(receiveData);
+            AnalysisDepth();
 
             var dic = GetPairs(receiveData.ch);
             string bitName = dic.Keys.Contains(CRRENCY_NAME) ? dic[CRRENCY_NAME] : string.Empty;
-            InsertToRedis(bidsJson, bitName + ":buy", receiveData.tick.ts);
-            InsertToRedis(asksJson, bitName + ":selling", receiveData.tick.ts);
+            //InsertToRedis(json, bitName, receiveData.tick.ts);
         }
 
         /// <summary>
@@ -48,149 +52,146 @@ namespace DataAnalysis.Application.Service.BitService
             _iCacheManager.Insert(string.Format("{0}:{1}", bitName, tc), json, DateTime.Now.AddMinutes(2));
         }
 
+        private void CalcBuyVolume(ReceiveData receiveData)
+        {
+            if (receiveData != null)
+            {
+                double[][] bids = receiveData.tick.bids;
+                for (var i = 0; i < bids.Length; i++)
+                {
+                    BitDetail bitEntity = new BitDetail();
+                    for (var j = 0; j < bids[i].Length; j++)
+                    {
+                        //价格
+                        if (j == 0)
+                        {
+                            bitEntity.Price = bids[i][j];
+                        }
+                        //成交量
+                        else if (j == 1)
+                        {
+                            bitEntity.Number = bids[i][j];
+                        }
+                    }
+                    bidsList.Add(bitEntity);
+                }
+            }
+        }
+
+        private void CalcSellingVolume(ReceiveData receiveData)
+        {
+            if (receiveData != null)
+            {
+                double[][] asks = receiveData.tick.asks;
+                for (var i = 0; i < asks.Length; i++)
+                {
+                    BitDetail bitEntity = new BitDetail();
+                    for (var j = 0; j < asks[i].Length; j++)
+                    {
+                        //价格
+                        if (j == 0)
+                        {
+                            bitEntity.Price = asks[i][j];
+                        }
+                        //成交量
+                        else if (j == 1)
+                        {
+                            bitEntity.Number = asks[i][j];
+                        }
+                    }
+                    asksList.Add(bitEntity);
+                }
+ 
+            }
+        }
         /// <summary>
         /// 分析Depth买入得数据
         /// </summary>
         /// <param name="list"></param>
-        private string AnalysisBuyDepth(List<DepthTempEntity> list)
+        private void AnalysisDepth()
         {
-            /*
-             * 以价格升序，分成10个区间，计算每个区间占有的值
-             *  总成交量,总成交金额
-             */
-            var orderlist = list.OrderBy(p => p.SinglePrice);
-            //总成交量
-            var totalVolumn = list.Sum(p => p.SingleVolume);
-            //总成交价格
-            var totalPrice = list.Sum(p => p.SingleTotal);
-
-            var sectionDic = new Dictionary<string, string>();
-            //以10分为一个区间
-            var section = orderlist.Count() / 15;
-            int pageSize = 15;
-            for (var i = 0; i < section; i++)
+            if (bidsList.Count > 0 && asksList.Count > 0)
             {
-                var tempList = orderlist.Skip(i * pageSize).Take(15).ToList();
-                //取第一个和最后一个 的总价作为字典KEY
-                var firstPrice = tempList.FirstOrDefault().SinglePrice;
-                var lastPrice = tempList.LastOrDefault().SinglePrice;
-                sectionDic.Add($"{firstPrice}-{lastPrice}", tempList.Sum(p => p.SingleTotal).ToString("0.000000"));
-
-            }
-            var res = new
-            {
-                totalVolumn = totalVolumn.ToString("0.0000"),
-                totalPrice = totalPrice.ToString("0.000000"),
-                section = sectionDic
-            };
-            string json = JsonConvert.SerializeObject(res);
-            //Trace.WriteLine(json);
-            return json;
-        }
-
-        /// <summary>
-        /// 分析Depth买入得数据
-        /// </summary>
-        /// <param name="list"></param>
-        private string AnalysisSellingDepth(List<DepthTempEntity> list)
-        {
-            /*
-              * 以价格升序，分成10个区间，计算每个区间占有的值
-              *  总成交量,总成交金额
-            */
-            var orderlist = list.OrderBy(p => p.SinglePrice);
-            //总成交量
-            var totalVolumn = list.Sum(p => p.SingleVolume);
-            //总成交价格
-            var totalPrice = list.Sum(p => p.SingleTotal);
-
-            var sectionDic = new Dictionary<string, string>();
-            //以10分为一个区间
-            var section = orderlist.Count() / 15;
-            int pageSize = 15;
-            for (var i = 0; i < section; i++)
-            {
-                var tempList = orderlist.Skip(i * pageSize).Take(15).ToList();
-                //取第一个和最后一个 的总价作为字典KEY
-                var firstPrice = tempList.FirstOrDefault().SinglePrice;
-                var lastPrice = tempList.LastOrDefault().SinglePrice;
-                sectionDic.Add($"{firstPrice}-{lastPrice}", tempList.Sum(p => p.SingleTotal).ToString("0.000000"));
-
-            }
-            var res = new
-            {
-                totalVolumn = totalVolumn.ToString("0.0000"),
-                totalPrice = totalPrice.ToString("0.000000"),
-                section = sectionDic
-            };
-            string json = JsonConvert.SerializeObject(res);
-            //Trace.WriteLine(json);
-            return json;
-
-
-        }
-
-        /// <summary>
-        /// 深度 买入量 计算每一笔得余额
-        /// </summary>
-        public virtual List<DepthTempEntity> CalcBuyVolume(ReceiveData receiveData)
-        {
-            List<DepthTempEntity> bidsList = new List<DepthTempEntity>();
-            double[][] bids = receiveData.tick.bids;
-
-            for (var i = 0; i < bids.Length; i++)
-            {
-                DepthTempEntity tempEntity = new DepthTempEntity();
-                for (var j = 0; j < bids[i].Length; j++)
+                //买入按降序排序
+                bidsList = bidsList.OrderByDescending(p => p.Price).ThenByDescending(c => c.Number).ToList();
+                //卖出按升序排序
+                asksList = asksList.OrderBy(p => p.Price).ThenByDescending(c => c.Number).ToList();
+                Trace.WriteLine(JsonConvert.SerializeObject(bidsList));
+                Trace.WriteLine(JsonConvert.SerializeObject(asksList));
+                int bidsIndex = 0, asksIndex = 0;
+                if (asksList[asksIndex].Price > bidsList[bidsIndex].Price)
                 {
-                    //价格
-                    if (j == 0)
-                    {
-                        tempEntity.SinglePrice = bids[i][j];
-                    }
-                    //成交量
-                    else if (j == 1)
-                    {
-                        tempEntity.SingleVolume = bids[i][j];
-                    }
+                    Trace.WriteLine(bidsList[bidsIndex].Price);
+                    return;
                 }
-                //总价等于 买入价 * 买入成交
-                tempEntity.SingleTotal = tempEntity.SinglePrice * tempEntity.SingleVolume;
-                bidsList.Add(tempEntity);
-            }
-            return bidsList;
-        }
-
-        /// <summary>
-        /// 深度 卖出量
-        /// </summary>
-        public virtual List<DepthTempEntity> CalcSellingVolume(ReceiveData receiveData)
-        {
-            List<DepthTempEntity> asksList = new List<DepthTempEntity>();
-            double[][] asks = receiveData.tick.asks;
-            for (var i = 0; i < asks.Length; i++)
-            {
-                DepthTempEntity tempEntity = new DepthTempEntity();
-                for (var j = 0; j < asks[i].Length; j++)
+                double num = bidsList[bidsIndex].Number - asksList[asksIndex].Number;
+                if (num > 0)
                 {
-                    //价格
-                    if (j == 0)
-                    {
-                        tempEntity.SinglePrice = asks[i][j];
-                    }
-                    //成交量
-                    else if (j == 1)
-                    {
-                        tempEntity.SingleVolume = asks[i][j];
-                    }
+                    asksIndex++;
                 }
-                //总价等于 买入价 * 买入成交
-                tempEntity.SingleTotal = tempEntity.SinglePrice * tempEntity.SingleVolume;
-                asksList.Add(tempEntity);
+                else if (num < 0)
+                {
+                    bidsIndex++;
+                }
+                else
+                {
+                    asksIndex++;
+                    bidsIndex++;
+                }
+                Func(num, bidsIndex, asksIndex);
             }
 
-            return asksList;
         }
+        private void Func(double x, int bidsIndex, int asksIndex)
+        {
+            try
+            {
+                if ((bidsIndex >= bidsList.Count || asksIndex >= asksList.Count))
+                {
+                    Trace.WriteLine(bidsList[bidsIndex >= bidsList.Count ? bidsIndex - 1 : bidsIndex].Price);
+                    return;
+                }
+                if (asksList[asksIndex].Price > bidsList[bidsIndex].Price)
+                {
+                    Trace.WriteLine(bidsList[bidsIndex].Price);
+                    return;
+                }
+                //买入量小于卖出量，那么买入量的索引递增1
+                if (x < 0 && bidsList[bidsIndex].Price >= asksList[asksIndex].Price)
+                {
+                    x = bidsList[bidsIndex].Number + x;
+                }
+                //买入量大于卖出量
+                else if (x > 0 && bidsList[bidsIndex].Price >= asksList[asksIndex].Price)
+                {
+                    x = -asksList[asksIndex].Number + x;
+                }
+                else if (x == 0 && bidsList[bidsIndex].Price >= asksList[asksIndex].Price)
+                {
+                    x = bidsList[bidsIndex].Number - asksList[asksIndex].Number;
+                }
+                if (x > 0)
+                {
+                    asksIndex++;
+                }
+                else if (x < 0)
+                {
+                    bidsIndex++;
+                }
+                else
+                {
+                    asksIndex++;
+                    bidsIndex++;
+                }
+                Func(x, bidsIndex, asksIndex);
+            }
+            catch (Exception ex)
+            {
+                LogManage.Job.Debug(ex);
+                Trace.WriteLine($"报错:bidsIndex:{bidsIndex},asksIndex{asksIndex}");
+            }
+        }
+
 
         public Dictionary<string, string> GetPairs(string ch)
         {

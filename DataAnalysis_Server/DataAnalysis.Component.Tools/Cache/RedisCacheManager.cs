@@ -164,6 +164,14 @@ namespace DataAnalysis.Component.Tools.Cache
             return keysList;
         }
 
+        public void RemoveBatch(string pattern = "")
+        {
+            pattern = string.IsNullOrWhiteSpace(pattern) ? "*" : pattern;
+            foreach (var key in server.Keys(pattern: pattern))
+            {
+                Remove(pattern);
+            }
+        }
         public string AddKeyPrefix(string key)
         {
             return $"{PrefixKey}:{key}";

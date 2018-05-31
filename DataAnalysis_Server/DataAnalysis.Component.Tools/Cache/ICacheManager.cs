@@ -99,5 +99,11 @@ namespace DataAnalysis.Component.Tools.Cache
         /// <returns></returns>
         string AddKeyPrefix(string key);
 
+        /// <summary>
+        /// ÅúÁ¿É¾³ý
+        /// </summary>
+        /// <param name="pattern"></param>
+        void RemoveBatch(string pattern = "");
+
     }
 }

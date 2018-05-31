@@ -3,6 +3,7 @@ using DataAnalysis.Component.Tools.Cache;
 using DataAnalysis.Component.Tools.Common;
 using DataAnalysis.Component.Tools.Constant;
 using DataAnalysis.Component.Tools.Log;
+using Newtonsoft.Json;
 using Quartz;
 using System;
 using System.Collections.Generic;
@@ -37,53 +38,40 @@ namespace DataAnalysis.Application.Service.JobService
                     {
                         //查询所有的key，根据key在查询value
                         var bitDic = ReflectionHelper.GetStaticPropertyNameAndValue(typeof(BitSpecies));
+                        var allDic = new Dictionary<string, dynamic>();
                         foreach (KeyValuePair<string, object> keyVal in bitDic)
                         {
-                            var buysValueList = new List<dynamic>();
-                            var sellingValueList = new List<dynamic>();
                             //取出当前币种对应 的key
-                            var buyKeysList = _iCacheManager.GetKeys($"{keyVal.Value}:buy:*");
-                            var sellingKeysList = _iCacheManager.GetKeys($"{keyVal.Value}:selling:*");
-                            buyKeysList.ForEach(p =>
+                            var keysList = _iCacheManager.GetKeys($"{keyVal.Value}:*");
+                            keysList.ForEach(p =>
                             {
                                 string value = Convert.ToString(_iCacheManager.Get(p));
+                                dynamic dyn = JsonConvert.DeserializeObject<dynamic>(value);
                                 var array = p.Split(':');
-                                dynamic dymBuys = new ExpandoObject();
-                                dymBuys.bit = array[0];
-                                dymBuys.type = array[1];
-                                dymBuys.tc = array[2];
-                                dymBuys.json = value;
-                                buysValueList.Add(dymBuys);
-                                _iCacheManager.Remove(p);
+                                dynamic dymBit = new ExpandoObject();
+                                dymBit.bit = array[0];
+                                dymBit.ts = array[1];
+                                //买入金额数量
+                                dymBit.buyTotalVolumn = dyn.buyTotalVolumn;
+                                //买入总金额
+                                dymBit.buyTotalPrice = dyn.buyTotalPrice;
+                                //卖出金额数量
+                                dymBit.sellingTotalVolumn = dyn.sellingTotalVolumn;
+                                //卖出总数量
+                                dymBit.sellingTotalPrice = dyn.sellingTotalPrice;
+                                dymBit.bidsJson = dyn.bidsList;
+                                dymBit.aidsJson = dyn.asksList;
+                                allDic.Add(p, dymBit);
                             });
-
-                            sellingKeysList.ForEach(p =>
-                            {
-                                string value = Convert.ToString(_iCacheManager.Get(p));
-                                var array = p.Split(':');
-                                dynamic dymBuys = new ExpandoObject();
-                                dymBuys.bit = array[0];
-                                dymBuys.type = array[1];
-                                dymBuys.tc = array[2];
-                                dymBuys.json = value;
-                                sellingValueList.Add(dymBuys);
-                                _iCacheManager.Remove(p);
-                            });
-                            var res = from buysItem in buysValueList
-                                      join
-                                      sellingItem in sellingValueList
-                                      on buysItem.tc equals sellingItem.tc
-                                      orderby buysItem.tc, sellingItem.tc
-                                      select new
-                                      {
-                                          bit = buysItem.bit,
-                                          type = buysItem.type,
-                                          tc = buysItem.tc,
-                                          buyJson = buysItem.json,
-                                          sellingJson = sellingItem.json
-                                      };
+                            _iCacheManager.RemoveBatch($"{keyVal.Value}:*");
                         }
-
+                        if (allDic.Count > 0)
+                        {
+                            foreach (KeyValuePair<string, dynamic> keyDepth in allDic)
+                            {
+                                Console.WriteLine(keyDepth.Key);
+                            }
+                        }
 
                     }
                     catch (Exception ex)

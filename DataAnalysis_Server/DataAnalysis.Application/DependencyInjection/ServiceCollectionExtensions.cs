@@ -4,12 +4,12 @@ using Autofac.Extensions.DependencyInjection;
 using DataAnalysis.Application.IService;
 using DataAnalysis.Application.IService.IJobService;
 using DataAnalysis.Application.Service;
+using DataAnalysis.Application.Service.BitService;
 using DataAnalysis.Application.Service.JobService;
 using DataAnalysis.Component.Tools.Cache;
 using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
 using DataAnalysis.Core.Data.Repository.Repositories.UnitRepository;
 using DataAnalysis.Manipulation.DapperExtension;
-using DataAnalysis.Manipulation.WebSocketExtension;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -27,8 +27,9 @@ namespace DataAnalysisFrame
 
             #region service 层注入
             builder.RegisterType<AmplitudeService>().As<IAmplitudeService>();
-            builder.RegisterType<ExecuteQueueService>().As<IExecuteQueueService>();
+            builder.RegisterType<ExecuteSocketService>().As<IExecuteSocketService>();
             builder.RegisterType<ExecuteRedisService>().As<IExecuteRedisService>();
+            builder.RegisterType<BitBaseService>();
             #endregion
 
             builder.RegisterType<DbProviderConfig>().As<IDbProviderConfig>().SingleInstance();

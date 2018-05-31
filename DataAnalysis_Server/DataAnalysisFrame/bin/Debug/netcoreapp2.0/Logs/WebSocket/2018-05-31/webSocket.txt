@@ -1,0 +1,2 @@
+2018-05-31 22:48:37.4414 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-05-31 22:48:37.5684 | Error | The socket is connected, you needn't connect again! 

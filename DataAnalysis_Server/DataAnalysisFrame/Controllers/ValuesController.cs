@@ -17,8 +17,8 @@ namespace DataAnalysisFrame.Controllers
     public class ValuesController : Controller
     {
         private readonly IAmplitudeService _iAmplitudeService;
-        private readonly IExecuteQueueService _executeQueueService;
-        public ValuesController(IAmplitudeService iAmplitudeService, IExecuteQueueService executeQueueService)
+        private readonly IExecuteSocketService _executeQueueService;
+        public ValuesController(IAmplitudeService iAmplitudeService, IExecuteSocketService executeQueueService)
         {
             _iAmplitudeService = iAmplitudeService;
             _executeQueueService = executeQueueService;
