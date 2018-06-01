@@ -1,0 +1,369 @@
+2018-06-01 16:59:15.7007 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:00:15.3644 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:01:03.4939 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:02:04.0052 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:03:04.1711 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:04:09.1520 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:05:03.6147 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:06:03.3581 | Error | ExecuteDetpthRedisJob执行报错:Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 46 
+2018-06-01 17:37:02.5247 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:38:03.1116 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:39:03.4955 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:40:03.5720 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:41:02.5659 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:42:02.6502 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:43:02.8382 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:44:03.0444 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:45:03.0625 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:46:02.7968 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:48:02.3462 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:49:02.4081 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:50:02.9929 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:51:02.9788 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:52:02.9188 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:53:03.0441 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:54:02.9689 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:55:03.0466 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:56:03.2715 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:57:02.4188 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:58:20.7175 | Error | ExecuteDetpthRedisJob执行报错:System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.Convert.ToDateTime(String value, IFormatProvider provider)
+   at System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   at Newtonsoft.Json.Utilities.ConvertUtils.TryConvertInternal(Object initialValue, CultureInfo culture, Type targetType, Object& value)
+   at Newtonsoft.Json.Utilities.ConvertUtils.Convert(Object initialValue, CultureInfo culture, Type targetType)
+   at Newtonsoft.Json.Linq.JValue.JValueDynamicProxy.TryConvert(JValue instance, ConvertBinder binder, Object& result)
+   at CallSite.Target(Closure , CallSite , Object )
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 55
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 17:58:37.7908 | Error | ExecuteDetpthQueueJob执行报错:StackExchange.Redis.RedisTimeoutException: Timeout performing PSETEX eos:1527847090526, inst: 1, queue: 1, qu: 0, qs: 1, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, clientName: DESKTOP-VPDVUVR, serverEndpoint: 47.104.194.54:8099, keyHashSlot: 5975 (Please take a look at this article for some common client-side issues that can cause timeouts: http://stackexchange.github.io/StackExchange.Redis/Timeouts)
+   at StackExchange.Redis.ConnectionMultiplexer.ExecuteSyncImpl[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\ConnectionMultiplexer.cs:line 2120
+   at StackExchange.Redis.RedisBase.ExecuteSync[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\RedisBase.cs:line 81
+   at DataAnalysis.Component.Tools.Cache.RedisCacheManager.Insert[T](String key, T data, DateTime cacheTime) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Cache\RedisCacheManager.cs:line 119
+   at DataAnalysis.Application.Service.BitService.BitBaseService.InsertToRedis(String json, String bitName, Int64 tc) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 92
+   at DataAnalysis.Application.Service.BitService.BitBaseService.Calc(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 80
+   at DataAnalysis.Application.Service.JobService.ExecuteSocketService.ExecuteDetpthJob(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteSocketService.cs:line 36 
+2018-06-01 18:01:58.6856 | Error | ExecuteDetpthRedisJob执行报错:Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 2018-06-01 18:01:41:571. Path 'ForecastTime', line 1, position 120.
+   at Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   at Newtonsoft.Json.JsonTextReader.FinishReadQuotedStringValue(ReadType readType)
+   at Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 50
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 18:01:58.6856 | Error | ExecuteDetpthQueueJob执行报错:StackExchange.Redis.RedisTimeoutException: Timeout performing PSETEX btc:1527847306510, inst: 1, queue: 1, qu: 0, qs: 1, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, clientName: DESKTOP-VPDVUVR, serverEndpoint: 47.104.194.54:8099, keyHashSlot: 1313 (Please take a look at this article for some common client-side issues that can cause timeouts: http://stackexchange.github.io/StackExchange.Redis/Timeouts)
+   at StackExchange.Redis.ConnectionMultiplexer.ExecuteSyncImpl[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\ConnectionMultiplexer.cs:line 2120
+   at StackExchange.Redis.RedisBase.ExecuteSync[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\RedisBase.cs:line 81
+   at DataAnalysis.Component.Tools.Cache.RedisCacheManager.Insert[T](String key, T data, DateTime cacheTime) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Cache\RedisCacheManager.cs:line 119
+   at DataAnalysis.Application.Service.BitService.BitBaseService.InsertToRedis(String json, String bitName, Int64 tc) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 92
+   at DataAnalysis.Application.Service.BitService.BitBaseService.Calc(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 80
+   at DataAnalysis.Application.Service.JobService.ExecuteSocketService.ExecuteDetpthJob(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteSocketService.cs:line 36 
+2018-06-01 18:05:11.2342 | Error | ExecuteDetpthQueueJob执行报错:StackExchange.Redis.RedisTimeoutException: Timeout performing PSETEX ada:1527847506016, inst: 1, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, clientName: DESKTOP-VPDVUVR, serverEndpoint: 47.104.194.54:8099, keyHashSlot: 7171 (Please take a look at this article for some common client-side issues that can cause timeouts: http://stackexchange.github.io/StackExchange.Redis/Timeouts)
+   at StackExchange.Redis.ConnectionMultiplexer.ExecuteSyncImpl[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\ConnectionMultiplexer.cs:line 2120
+   at StackExchange.Redis.RedisBase.ExecuteSync[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\RedisBase.cs:line 81
+   at DataAnalysis.Component.Tools.Cache.RedisCacheManager.Insert[T](String key, T data, DateTime cacheTime) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Cache\RedisCacheManager.cs:line 119
+   at DataAnalysis.Application.Service.BitService.BitBaseService.InsertToRedis(String json, String bitName, Int64 tc) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 92
+   at DataAnalysis.Application.Service.BitService.BitBaseService.Calc(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 80
+   at DataAnalysis.Application.Service.JobService.ExecuteSocketService.ExecuteDetpthJob(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteSocketService.cs:line 36 
+2018-06-01 18:05:24.2491 | Error | ExecuteDetpthRedisJob执行报错:Newtonsoft.Json.JsonReaderException: Could not convert string to DateTime: 2018-06-01 18:05:04:986. Path 'ForecastTime', line 1, position 120.
+   at Newtonsoft.Json.JsonReader.ReadDateTimeString(String s)
+   at Newtonsoft.Json.JsonTextReader.FinishReadQuotedStringValue(ReadType readType)
+   at Newtonsoft.Json.JsonTextReader.ReadAsDateTime()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.<>c__DisplayClass4_0.<ExecuteDetpthRedisJob>b__0(String p) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 50
+   at System.Collections.Generic.List`1.ForEach(Action`1 action)
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 47 
+2018-06-01 18:11:20.5077 | Error | ExecuteDetpthQueueJob执行报错:StackExchange.Redis.RedisTimeoutException: Timeout performing PSETEX ada:1527847875028, inst: 0, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, clientName: DESKTOP-VPDVUVR, serverEndpoint: 47.104.194.54:8099, keyHashSlot: 6869 (Please take a look at this article for some common client-side issues that can cause timeouts: http://stackexchange.github.io/StackExchange.Redis/Timeouts)
+   at StackExchange.Redis.ConnectionMultiplexer.ExecuteSyncImpl[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\ConnectionMultiplexer.cs:line 2120
+   at StackExchange.Redis.RedisBase.ExecuteSync[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\RedisBase.cs:line 81
+   at DataAnalysis.Component.Tools.Cache.RedisCacheManager.Insert[T](String key, T data, DateTime cacheTime) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Cache\RedisCacheManager.cs:line 119
+   at DataAnalysis.Application.Service.BitService.BitBaseService.InsertToRedis(String json, String bitName, Int64 tc) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 92
+   at DataAnalysis.Application.Service.BitService.BitBaseService.Calc(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 80
+   at DataAnalysis.Application.Service.JobService.ExecuteSocketService.ExecuteDetpthJob(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteSocketService.cs:line 36 
+2018-06-01 18:11:52.8448 | Error | ExecuteDetpthQueueJob执行报错:StackExchange.Redis.RedisTimeoutException: Timeout performing PSETEX eos:1527847893021, inst: 1, queue: 2, qu: 0, qs: 2, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, clientName: DESKTOP-VPDVUVR, serverEndpoint: 47.104.194.54:8099, keyHashSlot: 6878 (Please take a look at this article for some common client-side issues that can cause timeouts: http://stackexchange.github.io/StackExchange.Redis/Timeouts)
+   at StackExchange.Redis.ConnectionMultiplexer.ExecuteSyncImpl[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\ConnectionMultiplexer.cs:line 2120
+   at StackExchange.Redis.RedisBase.ExecuteSync[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\RedisBase.cs:line 81
+   at DataAnalysis.Component.Tools.Cache.RedisCacheManager.Insert[T](String key, T data, DateTime cacheTime) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Cache\RedisCacheManager.cs:line 119
+   at DataAnalysis.Application.Service.BitService.BitBaseService.InsertToRedis(String json, String bitName, Int64 tc) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 92
+   at DataAnalysis.Application.Service.BitService.BitBaseService.Calc(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 80
+   at DataAnalysis.Application.Service.JobService.ExecuteSocketService.ExecuteDetpthJob(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteSocketService.cs:line 36 
+2018-06-01 18:16:26.8386 | Error | ExecuteDetpthRedisJob执行报错:System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 59 
+2018-06-01 18:17:28.2277 | Error | ExecuteDetpthRedisJob执行报错:System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 59 
+2018-06-01 18:19:11.0819 | Error | ExecuteDetpthRedisJob执行报错:System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 59 
+2018-06-01 18:20:53.4175 | Error | ExecuteDetpthRedisJob执行报错:System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 59 
+2018-06-01 18:21:04.4863 | Error | ExecuteDetpthQueueJob执行报错:StackExchange.Redis.RedisTimeoutException: Timeout performing PSETEX eos:1527848421017, inst: 1, queue: 2, qu: 0, qs: 2, qc: 0, wr: 0, wq: 0, in: 0, ar: 0, clientName: DESKTOP-VPDVUVR, serverEndpoint: 47.104.194.54:8099, keyHashSlot: 12246 (Please take a look at this article for some common client-side issues that can cause timeouts: http://stackexchange.github.io/StackExchange.Redis/Timeouts)
+   at StackExchange.Redis.ConnectionMultiplexer.ExecuteSyncImpl[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\ConnectionMultiplexer.cs:line 2120
+   at StackExchange.Redis.RedisBase.ExecuteSync[T](Message message, ResultProcessor`1 processor, ServerEndPoint server) in c:\code\StackExchange.Redis\StackExchange.Redis\StackExchange\Redis\RedisBase.cs:line 81
+   at DataAnalysis.Component.Tools.Cache.RedisCacheManager.Insert[T](String key, T data, DateTime cacheTime) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Cache\RedisCacheManager.cs:line 119
+   at DataAnalysis.Application.Service.BitService.BitBaseService.InsertToRedis(String json, String bitName, Int64 tc) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 92
+   at DataAnalysis.Application.Service.BitService.BitBaseService.Calc(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\BitService\BitBaseService.cs:line 80
+   at DataAnalysis.Application.Service.JobService.ExecuteSocketService.ExecuteDetpthJob(ReceiveData receiveData) in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteSocketService.cs:line 36 
+2018-06-01 18:22:28.2500 | Error | ExecuteDetpthRedisJob执行报错:System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 59 
+2018-06-01 18:30:22.2574 | Error | ExecuteDetpthRedisJob执行报错:System.NullReferenceException: Object reference not set to an instance of an object.
+   at DataAnalysis.Application.Service.JobService.ExecuteRedisService.ExecuteDetpthRedisJob() in E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Application\Service\JobService\ExecuteRedisService.cs:line 63 

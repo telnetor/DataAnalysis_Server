@@ -3,6 +3,7 @@ using DataAnalysis.Component.Tools.Cache;
 using DataAnalysis.Component.Tools.Common;
 using DataAnalysis.Component.Tools.Constant;
 using DataAnalysis.Component.Tools.Log;
+using DataAnalysis.Core.Data.Entity.DepthEntity;
 using Newtonsoft.Json;
 using Quartz;
 using System;
@@ -38,7 +39,7 @@ namespace DataAnalysis.Application.Service.JobService
                     {
                         //查询所有的key，根据key在查询value
                         var bitDic = ReflectionHelper.GetStaticPropertyNameAndValue(typeof(BitSpecies));
-                        var allDic = new Dictionary<string, dynamic>();
+                        var allDic = new Dictionary<string, DepthAnalysisEntity>();
                         foreach (KeyValuePair<string, object> keyVal in bitDic)
                         {
                             //取出当前币种对应 的key
@@ -46,30 +47,20 @@ namespace DataAnalysis.Application.Service.JobService
                             keysList.ForEach(p =>
                             {
                                 string value = Convert.ToString(_iCacheManager.Get(p));
-                                dynamic dyn = JsonConvert.DeserializeObject<dynamic>(value);
-                                var array = p.Split(':');
-                                dynamic dymBit = new ExpandoObject();
-                                dymBit.bit = array[0];
-                                dymBit.ts = array[1];
-                                //买入金额数量
-                                dymBit.buyTotalVolumn = dyn.buyTotalVolumn;
-                                //买入总金额
-                                dymBit.buyTotalPrice = dyn.buyTotalPrice;
-                                //卖出金额数量
-                                dymBit.sellingTotalVolumn = dyn.sellingTotalVolumn;
-                                //卖出总数量
-                                dymBit.sellingTotalPrice = dyn.sellingTotalPrice;
-                                dymBit.bidsJson = dyn.bidsList;
-                                dymBit.aidsJson = dyn.asksList;
-                                allDic.Add(p, dymBit);
+                                DepthAnalysisEntity entity = JsonConvert.DeserializeObject<DepthAnalysisEntity>(value);
+                                if (entity == null)
+                                {
+                                    Trace.WriteLine($"entity为空 key:{p}");
+                                }
+                                allDic.Add(p, entity);
                             });
                             _iCacheManager.RemoveBatch($"{keyVal.Value}:*");
                         }
                         if (allDic.Count > 0)
                         {
-                            foreach (KeyValuePair<string, dynamic> keyDepth in allDic)
+                            foreach (KeyValuePair<string, DepthAnalysisEntity> keyDepth in allDic)
                             {
-                                Console.WriteLine(keyDepth.Key);
+                                Trace.WriteLine($"{keyDepth.Value.CurrencyName}:{keyDepth.Value.ForecastAmount}");
                             }
                         }
 

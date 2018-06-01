@@ -16,5 +16,7 @@ namespace DataAnalysis.Component.Tools.Constant
         /// topic
         /// </summary>
         public static Dictionary<string, string> topicDic = new Dictionary<string, string>();
+
+        public static Dictionary<string, double> depthDic = new Dictionary<string, double>();
     }
 }

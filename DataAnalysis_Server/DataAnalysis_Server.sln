@@ -7,17 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{068DF8FD-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{56C25FD3-7785-4A5E-8F9B-9DD7EB5C2AE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalysis.Core.Data", "DataAnalysis.Core.Data\DataAnalysis.Core.Data.csproj", "{E76D3303-2666-4A17-9476-82E1D1BE0DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalysis.Core.Data", "DataAnalysis.Core.Data\DataAnalysis.Core.Data.csproj", "{E76D3303-2666-4A17-9476-82E1D1BE0DC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalysis.Core.Data.Repository", "DataAnalysis.Core.Data.Repository\DataAnalysis.Core.Data.Repository.csproj", "{D4E1545B-7C9A-418E-B0A0-A7F539429D21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalysis.Core.Data.Repository", "DataAnalysis.Core.Data.Repository\DataAnalysis.Core.Data.Repository.csproj", "{D4E1545B-7C9A-418E-B0A0-A7F539429D21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalysis.Application", "DataAnalysis.Application\DataAnalysis.Application.csproj", "{BD4B5FE5-49EC-4C7D-88E6-673E669D4ABF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalysis.Application", "DataAnalysis.Application\DataAnalysis.Application.csproj", "{BD4B5FE5-49EC-4C7D-88E6-673E669D4ABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalysis.Component.Tools", "DataAnalysis.Component.Tools\DataAnalysis.Component.Tools.csproj", "{F35F6696-B221-42FA-9799-D1B7340DAEFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalysis.Component.Tools", "DataAnalysis.Component.Tools\DataAnalysis.Component.Tools.csproj", "{F35F6696-B221-42FA-9799-D1B7340DAEFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalysis.Manipulation", "DataAnalysis.Manipulation\DataAnalysis.Manipulation.csproj", "{56C5AB16-6E6D-4895-94B4-9AC84BDD8CCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalysis.Manipulation", "DataAnalysis.Manipulation\DataAnalysis.Manipulation.csproj", "{56C5AB16-6E6D-4895-94B4-9AC84BDD8CCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAnalysisFrame", "DataAnalysisFrame\DataAnalysisFrame.csproj", "{2F9F0304-0E71-4A21-857F-81F48D5A44E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAnalysisFrame", "DataAnalysisFrame\DataAnalysisFrame.csproj", "{2F9F0304-0E71-4A21-857F-81F48D5A44E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -18,7 +18,7 @@ namespace DataAnalysisFrame
         /// <param name="serviceProvider"></param>
         public static void RunTask()
         {
-            //RecurringJob.AddOrUpdate(() => ServerLocation._iServiceProvider.Resolve<IExecuteRedisService>().ExecuteDetpthRedisJob(), Cron.Minutely());
+            RecurringJob.AddOrUpdate(() => ServerLocation._iServiceProvider.Resolve<IExecuteRedisService>().ExecuteDetpthRedisJob(), Cron.Minutely());
         }
     }
 }

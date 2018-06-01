@@ -40,3 +40,17 @@ F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Cor
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.csproj.CopyComplete
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.dll
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.pdb
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\bin\Debug\netstandard2.0\DataAnalysis.Core.Data.deps.json
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\bin\Debug\netstandard2.0\DataAnalysis.Core.Data.dll
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\bin\Debug\netstandard2.0\DataAnalysis.Core.Data.pdb
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.dll
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.dll
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.pdb
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.pdb
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.csprojResolveAssemblyReference.cache
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.csproj.CoreCompileInputs.cache
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.AssemblyInfoInputs.cache
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.AssemblyInfo.cs
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.csproj.CopyComplete
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.dll
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Core.Data\obj\Debug\netstandard2.0\DataAnalysis.Core.Data.pdb

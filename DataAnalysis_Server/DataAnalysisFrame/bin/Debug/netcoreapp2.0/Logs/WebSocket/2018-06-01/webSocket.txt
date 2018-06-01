@@ -1,0 +1,72 @@
+2018-06-01 11:58:10.4148 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 11:58:10.5544 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 12:05:30.9431 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 12:05:30.9558 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 12:05:30.9738 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 12:05:31.0072 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 16:24:22.3794 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:24:22.4948 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 16:51:30.5000 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:51:33.5455 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 16:53:09.5324 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:09.6008 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:11.3563 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:11.3563 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:11.3563 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:11.3747 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:11.3774 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:11.4046 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 16:53:11.4046 | Error | Unable to transfer data on the transport connection: 你的主机中的软件中止了一个已建立的连接。. 
+2018-06-01 16:53:11.4130 | Error | 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。 
+2018-06-01 16:53:11.4130 | Error | 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。 
+2018-06-01 16:53:11.4130 | Error | 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。 
+2018-06-01 16:53:11.4130 | Error | 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。 
+2018-06-01 16:53:11.4246 | Error | 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。 
+2018-06-01 16:53:11.4246 | Error | 由于套接字没有连接并且(当使用一个 sendto 调用发送数据报套接字时)没有提供地址，发送或接收数据的请求没有被接受。 
+2018-06-01 16:53:11.4455 | Error | The socket is connecting, cannot connect again! 
+2018-06-01 16:53:12.1103 | Error | unknown server protocol version 
+2018-06-01 16:53:12.1127 | Error | unknown server protocol version 
+2018-06-01 16:53:12.1127 | Error | unknown server protocol version 
+2018-06-01 16:53:12.1127 | Error | unknown server protocol version 
+2018-06-01 16:53:12.1490 | Error | unknown server protocol version 
+2018-06-01 16:53:12.1490 | Error | unknown server protocol version 
+2018-06-01 16:53:12.1490 | Error | unknown server protocol version 
+2018-06-01 16:56:52.7719 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 16:56:52.8833 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 17:07:13.3375 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 17:07:13.3375 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 17:07:13.3591 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 17:07:13.4253 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 17:21:43.7024 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 17:21:43.8332 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 17:33:53.1697 | Error | 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。 
+2018-06-01 17:45:51.3038 | Error | Unable to transfer data on the transport connection: 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。. 
+2018-06-01 17:45:51.3716 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 17:58:38.0390 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 17:58:38.0739 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 17:59:30.6267 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 17:59:35.0733 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 17:59:36.3373 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 17:59:36.4243 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 18:11:53.1720 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:11:53.2152 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 18:19:11.4112 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:19:11.5092 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 18:21:05.2012 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:21:05.2012 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:21:05.2057 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:21:05.2522 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 18:22:10.6978 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:22:12.9950 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:22:13.3991 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:22:13.7569 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:22:13.9676 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:22:14.0101 | Error | The socket is connected, you needn't connect again! 
+2018-06-01 18:26:13.9882 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:26:13.9882 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:26:14.0182 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:26:14.0215 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:26:14.0215 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:26:15.9113 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:26:15.9308 | Error | Unable to transfer data on the transport connection: 远程主机强迫关闭了一个现有的连接。. 
+2018-06-01 18:26:15.9591 | Error | The socket is connected, you needn't connect again! 

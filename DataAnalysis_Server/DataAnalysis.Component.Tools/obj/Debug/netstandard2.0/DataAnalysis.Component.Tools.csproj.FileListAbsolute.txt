@@ -17,3 +17,10 @@ F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Com
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\obj\Debug\netstandard2.0\DataAnalysis.Component.Tools.dll
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\obj\Debug\netstandard2.0\DataAnalysis.Component.Tools.pdb
 F:\c#\code\DataAnalysis\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\obj\Debug\netstandard2.0\DataAnalysis.Component.Tools.csprojResolveAssemblyReference.cache
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.deps.json
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.dll
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.pdb
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\obj\Debug\netstandard2.0\DataAnalysis.Component.Tools.csproj.CoreCompileInputs.cache
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\obj\Debug\netstandard2.0\DataAnalysis.Component.Tools.dll
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\obj\Debug\netstandard2.0\DataAnalysis.Component.Tools.pdb
+E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\obj\Debug\netstandard2.0\DataAnalysis.Component.Tools.csprojResolveAssemblyReference.cache

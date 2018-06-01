@@ -23,6 +23,10 @@ namespace DataAnalysis.Application.Service.BitService
 
         private string CRRENCY_NAME = "CrrencyName";
         private string CRRENCY_TYPE = "CrrencyType";
+
+        //预测金额
+        private double forecastAmount { get; set; }
+
         private List<BitDetail> bidsList { get; set; }
         private List<BitDetail> asksList { get; set; }
 
@@ -39,9 +43,45 @@ namespace DataAnalysis.Application.Service.BitService
             CalcSellingVolume(receiveData);
             AnalysisDepth();
 
-            var dic = GetPairs(receiveData.ch);
-            string bitName = dic.Keys.Contains(CRRENCY_NAME) ? dic[CRRENCY_NAME] : string.Empty;
-            //InsertToRedis(json, bitName, receiveData.tick.ts);
+            if (forecastAmount > 0)
+            {
+                var dic = GetPairs(receiveData.ch);
+                string currencyName = dic.Keys.Contains(CRRENCY_NAME) ? dic[CRRENCY_NAME] : string.Empty;
+                if (!HuoBiContract.depthDic.Keys.Contains(currencyName))
+                {
+                    var bitTarget = new
+                    {
+                        CurrencyName = currencyName,
+                        ForecastAmount = forecastAmount,
+                        ServerReturnTime = receiveData.tick.ts,
+                        ForecastTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff")
+                    };
+                    HuoBiContract.depthDic.Add(currencyName, forecastAmount);
+                    string json = JsonConvert.SerializeObject(bitTarget);
+                    Trace.WriteLine(json);
+                    InsertToRedis(json, currencyName, receiveData.tick.ts);
+                }
+                else
+                {
+                    double value = HuoBiContract.depthDic[currencyName];
+                    if (value != forecastAmount)
+                    {
+                        var bitTarget = new
+                        {
+                            CurrencyName = currencyName,
+                            ForecastAmount = forecastAmount,
+                            ServerReturnTime = receiveData.tick.ts,
+                            ForecastTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff")
+                        };
+                        //更新
+                        HuoBiContract.depthDic[currencyName] = forecastAmount;
+                        string json = JsonConvert.SerializeObject(bitTarget);
+                        Trace.WriteLine(json);
+                        InsertToRedis(json, currencyName, receiveData.tick.ts);
+                    }
+                }
+
+            }
         }
 
         /// <summary>
@@ -101,7 +141,7 @@ namespace DataAnalysis.Application.Service.BitService
                     }
                     asksList.Add(bitEntity);
                 }
- 
+
             }
         }
         /// <summary>
@@ -116,12 +156,10 @@ namespace DataAnalysis.Application.Service.BitService
                 bidsList = bidsList.OrderByDescending(p => p.Price).ThenByDescending(c => c.Number).ToList();
                 //卖出按升序排序
                 asksList = asksList.OrderBy(p => p.Price).ThenByDescending(c => c.Number).ToList();
-                Trace.WriteLine(JsonConvert.SerializeObject(bidsList));
-                Trace.WriteLine(JsonConvert.SerializeObject(asksList));
                 int bidsIndex = 0, asksIndex = 0;
                 if (asksList[asksIndex].Price > bidsList[bidsIndex].Price)
                 {
-                    Trace.WriteLine(bidsList[bidsIndex].Price);
+                    forecastAmount = bidsList[bidsIndex].Price;
                     return;
                 }
                 double num = bidsList[bidsIndex].Number - asksList[asksIndex].Number;
@@ -148,12 +186,12 @@ namespace DataAnalysis.Application.Service.BitService
             {
                 if ((bidsIndex >= bidsList.Count || asksIndex >= asksList.Count))
                 {
-                    Trace.WriteLine(bidsList[bidsIndex >= bidsList.Count ? bidsIndex - 1 : bidsIndex].Price);
+                    forecastAmount = bidsList[bidsIndex >= bidsList.Count ? bidsIndex - 1 : bidsIndex].Price;
                     return;
                 }
                 if (asksList[asksIndex].Price > bidsList[bidsIndex].Price)
                 {
-                    Trace.WriteLine(bidsList[bidsIndex].Price);
+                    forecastAmount = bidsList[bidsIndex].Price;
                     return;
                 }
                 //买入量小于卖出量，那么买入量的索引递增1
@@ -187,8 +225,7 @@ namespace DataAnalysis.Application.Service.BitService
             }
             catch (Exception ex)
             {
-                LogManage.Job.Debug(ex);
-                Trace.WriteLine($"报错:bidsIndex:{bidsIndex},asksIndex{asksIndex}");
+                LogManage.Job.Debug($"{ex}----bidsIndex:{bidsIndex},asksIndex{asksIndex}");
             }
         }
 

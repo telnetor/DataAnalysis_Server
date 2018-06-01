@@ -14,9 +14,9 @@ namespace DataAnalysisFrame
         public static void WebSocketStart()
         {
             //币种
-            //var dicBit = ReflectionHelper.GetStaticPropertyNameAndValue(typeof(BitContract));
-            var dicBit = new Dictionary<string, object>();
-            dicBit.Add("ADA_USDT", BitContract.ADA_USDT);
+            var dicBit = ReflectionHelper.GetStaticPropertyNameAndValue(typeof(BitContract));
+            //var dicBit = new Dictionary<string, object>();
+            //dicBit.Add("ADA_USDT", BitContract.ADA_USDT);
             CommonlyExtensions.Foreach(dicBit, TakeEnum.Depth, (topic) =>
             {
                 WebSocketBehavior.Subscribe(topic, HuoBiContract.HUOBI_ID);
