@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
-using DataAnalysis.Core.Data.Repository.Repositories.UnitRepository;
+using DataAnalysis.Component.Tools.Cache;
 using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,8 +43,8 @@ namespace DataAnalysisFrame
                 app.UseDeveloperExceptionPage();
             }
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            //启动websocket
-            WebSocketExtensions.WebSocketStart();
+            //初始化redis
+            RedisHelper.InitializeConfiguration();
 
             env.ConfigureNLog("Nlog.config");//读取Nlog配置文件
 
@@ -54,7 +53,8 @@ namespace DataAnalysisFrame
             //启动hangfire面板
             app.UseHangfireDashboard();
             app.RunTask();
-            //app.RunTimer();
+            //启动websocket
+            WebSocketExtensions.WebSocketStart();
             app.UseMvc();
         }
     }

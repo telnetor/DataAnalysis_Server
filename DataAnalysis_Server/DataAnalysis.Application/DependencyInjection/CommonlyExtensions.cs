@@ -19,6 +19,8 @@ namespace DataAnalysisFrame
             string kLine = TopicContract.K_LINE;
             //深度
             string marketDepth = TopicContract.MARKET_DEPTH;
+            //成交价格
+            string tradeDetail = TopicContract.TRADE_DETAIL;
 
             foreach (KeyValuePair<string, object> item in dic)
             {
@@ -30,9 +32,12 @@ namespace DataAnalysisFrame
                     //深度
                     var depthTopic = marketDepth.Replace("$symbol", value).Replace("$type", depthStep);
                     //读取K线
-                    var kLineTopic = kLine.Replace("$symbol", value).Replace("$period", kLineMinute);
+                    //var kLineTopic = kLine.Replace("$symbol", value).Replace("$period", kLineMinute);
+                    //读取最新成交价格
+                    var tradeTopic = tradeDetail.Replace("$symbol", value);
                     action(depthTopic);
-                    action(kLineTopic);
+                    //action(kLineTopic);
+                    action(tradeTopic);
                     continue;
                 }
                 else if (takeEnum == TakeEnum.Depth)
@@ -44,6 +49,11 @@ namespace DataAnalysisFrame
                 {
                     //读取K线 market.$symbol.kline.$period
                     topic = kLine.Replace("$symbol", value).Replace("$period", kLineMinute);
+                }
+                else if (takeEnum == TakeEnum.Trade)
+                {
+                    //成交价格
+                    topic = tradeDetail.Replace("$symbol", value);
                 }
                 action(topic);
             }

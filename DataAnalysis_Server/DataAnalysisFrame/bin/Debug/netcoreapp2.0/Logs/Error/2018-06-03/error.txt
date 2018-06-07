@@ -1,0 +1,180 @@
+2018-06-03 17:55:35.1980 | Debug | 发送邮箱报错:System.UriFormatException: Invalid URI: The hostname could not be parsed.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at MailKit.Net.Smtp.SmtpClient.ComputeDefaultValues(String host, Int32& port, SecureSocketOptions& options, Uri& uri, Boolean& starttls)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 17:58:32.4664 | Debug | 发送邮箱报错:System.UriFormatException: Invalid URI: The hostname could not be parsed.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at MailKit.Net.Smtp.SmtpClient.ComputeDefaultValues(String host, Int32& port, SecureSocketOptions& options, Uri& uri, Boolean& starttls)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 17:58:37.5423 | Debug | 发送邮箱报错:System.UriFormatException: Invalid URI: The hostname could not be parsed.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at MailKit.Net.Smtp.SmtpClient.ComputeDefaultValues(String host, Int32& port, SecureSocketOptions& options, Uri& uri, Boolean& starttls)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:08:54.9922 | Debug | 发送邮箱报错:System.UriFormatException: Invalid URI: The hostname could not be parsed.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at MailKit.Net.Smtp.SmtpClient.ComputeDefaultValues(String host, Int32& port, SecureSocketOptions& options, Uri& uri, Boolean& starttls)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:09:20.0610 | Debug | 发送邮箱报错:System.UriFormatException: Invalid URI: The hostname could not be parsed.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at MailKit.Net.Smtp.SmtpClient.ComputeDefaultValues(String host, Int32& port, SecureSocketOptions& options, Uri& uri, Boolean& starttls)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:10:23.9255 | Debug | 发送邮箱报错:System.UriFormatException: Invalid URI: The hostname could not be parsed.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at MailKit.Net.Smtp.SmtpClient.ComputeDefaultValues(String host, Int32& port, SecureSocketOptions& options, Uri& uri, Boolean& starttls)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:12:00.6653 | Debug | 发送邮箱报错:System.UriFormatException: Invalid URI: The hostname could not be parsed.
+   at System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   at System.Uri..ctor(String uriString)
+   at MailKit.Net.Smtp.SmtpClient.ComputeDefaultValues(String host, Int32& port, SecureSocketOptions& options, Uri& uri, Boolean& starttls)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:14:57.3194 | Debug | 发送邮箱报错:MailKit.Net.Smtp.SmtpProtocolException: The SMTP server has unexpectedly disconnected.
+   at MailKit.Net.Smtp.SmtpStream.<ReadAheadAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.<ReadResponseAsync>d__54.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.ReadResponse(CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:14:57.3487 | Debug | 发送邮箱报错:MailKit.Net.Smtp.SmtpProtocolException: The SMTP server has unexpectedly disconnected.
+   at MailKit.Net.Smtp.SmtpStream.<ReadAheadAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.<ReadResponseAsync>d__54.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.ReadResponse(CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:15:47.9988 | Debug | 发送邮箱报错:MailKit.Net.Smtp.SmtpProtocolException: The SMTP server has unexpectedly disconnected.
+   at MailKit.Net.Smtp.SmtpStream.<ReadAheadAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.<ReadResponseAsync>d__54.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.ReadResponse(CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.<ConnectAsync>d__69.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Connect(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at MailKit.MailService.Connect(String host, Int32 port, Boolean useSsl, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 51 
+2018-06-03 18:18:53.5571 | Debug | 发送邮箱报错:MailKit.Security.AuthenticationException: AuthenticationInvalidCredentials: Error: authentication failed
+   at MailKit.Net.Smtp.SmtpClient.<AuthenticateAsync>d__64.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Authenticate(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at MailKit.MailService.Authenticate(String userName, String password, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 52 
+2018-06-03 18:19:25.2532 | Debug | 发送邮箱报错:MailKit.Security.AuthenticationException: AuthenticationInvalidCredentials: Error: authentication failed
+   at MailKit.Net.Smtp.SmtpClient.<AuthenticateAsync>d__64.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Authenticate(Encoding encoding, ICredentials credentials, CancellationToken cancellationToken)
+   at MailKit.MailService.Authenticate(String userName, String password, CancellationToken cancellationToken)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 52 
+2018-06-03 18:39:25.2095 | Debug | 发送邮箱报错:MailKit.Net.Smtp.SmtpCommandException: DT:SPM 163 smtp7,C8CowAB3eSRfxRNbvqw+EA--.18029S2 1528022368,please see http://mail.163.com/help/help_spam_16.htm?ip=183.11.74.52&hostid=smtp7&time=1528022368
+   at MailKit.Net.Smtp.SmtpClient.<DataAsync>d__97.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.<SendAsync>d__99.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at MailKit.Net.Smtp.SmtpClient.<SendAsync>d__99.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Send(FormatOptions options, MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
+   at MailKit.MailTransport.Send(MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 61 
+2018-06-03 18:52:52.9922 | Debug | 发送邮箱报错:MailKit.Net.Smtp.SmtpProtocolException: The SMTP server has unexpectedly disconnected.
+   at MailKit.Net.Smtp.SmtpStream.<ReadAheadAsync>d__47.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.<ReadResponseAsync>d__54.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpStream.ReadResponse(CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.<DataAsync>d__97.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.<SendAsync>d__99.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at MailKit.Net.Smtp.SmtpClient.Send(FormatOptions options, MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
+   at MailKit.MailTransport.Send(MimeMessage message, CancellationToken cancellationToken, ITransferProgress progress)
+   at DataAnalysis.Component.Tools.Common.EmailHelper.SendEmail(String title, String content) in F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Component.Tools\Common\EmailHelper.cs:line 61 

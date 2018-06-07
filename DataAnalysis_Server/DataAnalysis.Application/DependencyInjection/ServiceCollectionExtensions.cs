@@ -2,13 +2,14 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using DataAnalysis.Application.IService;
+using DataAnalysis.Application.IService.ICallService;
 using DataAnalysis.Application.IService.IJobService;
+using DataAnalysis.Application.IService.IUserService;
 using DataAnalysis.Application.Service;
 using DataAnalysis.Application.Service.BitService;
+using DataAnalysis.Application.Service.CallService;
 using DataAnalysis.Application.Service.JobService;
-using DataAnalysis.Component.Tools.Cache;
-using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
-using DataAnalysis.Core.Data.Repository.Repositories.UnitRepository;
+using DataAnalysis.Application.Service.UserService;
 using DataAnalysis.Manipulation.DapperExtension;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -29,6 +30,9 @@ namespace DataAnalysisFrame
             builder.RegisterType<AmplitudeService>().As<IAmplitudeService>();
             builder.RegisterType<ExecuteSocketService>().As<IExecuteSocketService>();
             builder.RegisterType<ExecuteRedisService>().As<IExecuteRedisService>();
+            builder.RegisterType<ExecuteCallService>().As<IExecuteCallService>();
+            builder.RegisterType<ObtainService>().As<IObtainService>();
+            builder.RegisterType<UserAssetsService>().As<IUserAssetsService>();
             builder.RegisterType<BitBaseService>();
             #endregion
 

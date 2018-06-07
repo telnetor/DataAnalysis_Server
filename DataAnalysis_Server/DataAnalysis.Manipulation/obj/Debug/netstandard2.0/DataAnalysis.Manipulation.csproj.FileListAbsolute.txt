@@ -46,3 +46,15 @@ E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj
 E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csproj.CopyComplete
 E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.dll
 E:\Code\c#\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.pdb
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.deps.json
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.dll
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Manipulation.pdb
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.dll
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\bin\Debug\netstandard2.0\DataAnalysis.Component.Tools.pdb
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csprojResolveAssemblyReference.cache
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csproj.CoreCompileInputs.cache
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.AssemblyInfoInputs.cache
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.AssemblyInfo.cs
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.csproj.CopyComplete
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.dll
+F:\c#\code\DataAnalysis_Server\DataAnalysis_Server\DataAnalysis.Manipulation\obj\Debug\netstandard2.0\DataAnalysis.Manipulation.pdb

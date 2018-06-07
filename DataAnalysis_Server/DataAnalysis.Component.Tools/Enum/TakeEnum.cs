@@ -11,6 +11,8 @@ namespace DataAnalysis.Component.Tools.Enum
         //深度
         Depth=1,
         //K线
-        KLine=2
+        KLine=2,
+        //成交价格
+        Trade=3
     }
 }

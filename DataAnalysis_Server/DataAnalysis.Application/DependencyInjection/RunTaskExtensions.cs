@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Autofac;
 using Hangfire;
 using DataAnalysis.Application.IService.IJobService;
+using System;
 
 namespace DataAnalysisFrame
 {
@@ -19,6 +20,8 @@ namespace DataAnalysisFrame
         public static void RunTask()
         {
             RecurringJob.AddOrUpdate(() => ServerLocation._iServiceProvider.Resolve<IExecuteRedisService>().ExecuteDetpthRedisJob(), Cron.Minutely());
+            RecurringJob.AddOrUpdate(() => ServerLocation._iServiceProvider.Resolve<IExecuteCallService>().ExecuteBalanceJob(), Cron.Daily(0), TimeZoneInfo.Local);
+            RecurringJob.AddOrUpdate(() => ServerLocation._iServiceProvider.Resolve<IExecuteCallService>().ExecuteMarketDetailJob(), Cron.Daily(0), TimeZoneInfo.Local);
         }
     }
 }

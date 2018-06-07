@@ -2,6 +2,7 @@
 using DataAnalysis.Application.IService.IJobService;
 using DataAnalysis.Application.Service.BitService;
 using DataAnalysis.Component.Tools.Constant;
+using DataAnalysis.Component.Tools.Constant.ResponseEntity;
 using DataAnalysis.Component.Tools.Log;
 using DataAnalysisFrame;
 using System;
@@ -20,10 +21,10 @@ namespace DataAnalysis.Application.Service.JobService
         private static object objDepthLock = new object();
         private static bool isDepthFlg = true;
 
-        private static object objLineLock = new object();
-        private static bool isLineFlg = true;
+        private static object objTradeLock = new object();
+        private static bool isTradeFlg = true;
 
-        public void ExecuteDetpthJob(ReceiveData receiveData)
+        public void ExecuteDetpthJob(ReceiveDataSocket receiveData)
         {
             lock (objDepthLock)
             {
@@ -47,9 +48,34 @@ namespace DataAnalysis.Application.Service.JobService
             }
         }
 
-        public void ExecuteKLineQueueJob()
+        public void ExecuteKLineJob()
         {
             throw new NotImplementedException();
+        }
+
+
+        public void ExecuteTradeJob(TraceDataSocket receiveData)
+        {
+            lock (objTradeLock)
+            {
+                if (isTradeFlg)
+                {
+                    isTradeFlg = false;
+                    try
+                    {
+                        var service = ServerLocation._iServiceProvider.Resolve<BitBaseService>();
+                        service.AnalysisTrade(receiveData);
+                    }
+                    catch (Exception ex)
+                    {
+                        LogManage.Job.Error($"ExecuteDetpthQueueJob执行报错:{ex}");
+                    }
+                    finally
+                    {
+                        isTradeFlg = true;
+                    }
+                }
+            }
         }
     }
 }

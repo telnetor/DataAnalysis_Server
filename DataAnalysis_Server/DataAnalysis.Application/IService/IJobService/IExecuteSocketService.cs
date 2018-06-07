@@ -1,4 +1,5 @@
 ﻿using DataAnalysis.Component.Tools.Constant;
+using DataAnalysis.Component.Tools.Constant.ResponseEntity;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,12 +12,17 @@ namespace DataAnalysis.Application.IService.IJobService
     public interface IExecuteSocketService
     {
         /// <summary>
-        /// 定时执行深度队列
+        /// 执行深度
         /// </summary>
-        void ExecuteDetpthJob(ReceiveData receiveData);
+        void ExecuteDetpthJob(ReceiveDataSocket receiveData);
         /// <summary>
-        /// 定时执行K线队列
+        /// 执行K线
         /// </summary>
-        void ExecuteKLineQueueJob();
+        void ExecuteKLineJob();
+
+        /// <summary>
+        /// 更新redis中币种的最新价格
+        /// </summary>
+        void ExecuteTradeJob(TraceDataSocket receiveData);
     }
 }

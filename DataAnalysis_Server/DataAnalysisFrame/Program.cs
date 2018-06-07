@@ -23,7 +23,6 @@ namespace DataAnalysisFrame
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .UseNLog()
-                .UseRedis()
                 .Build();
     }
 }

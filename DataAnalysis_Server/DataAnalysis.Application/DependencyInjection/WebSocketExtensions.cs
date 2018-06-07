@@ -17,7 +17,7 @@ namespace DataAnalysisFrame
             var dicBit = ReflectionHelper.GetStaticPropertyNameAndValue(typeof(BitContract));
             //var dicBit = new Dictionary<string, object>();
             //dicBit.Add("ADA_USDT", BitContract.ADA_USDT);
-            CommonlyExtensions.Foreach(dicBit, TakeEnum.Depth, (topic) =>
+            CommonlyExtensions.Foreach(dicBit, TakeEnum.ALL, (topic) =>
             {
                 WebSocketBehavior.Subscribe(topic, HuoBiContract.HUOBI_ID);
             });

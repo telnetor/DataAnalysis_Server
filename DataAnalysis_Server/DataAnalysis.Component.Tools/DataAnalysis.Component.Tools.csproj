@@ -6,17 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Http\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="2.1.1" />
+    <PackageReference Include="MailKit" Version="2.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.5.4" />
-    <PackageReference Include="Quartz" Version="3.0.5" />
-    <PackageReference Include="StackExchange.Redis" Version="1.2.6" />
+    <PackageReference Include="RestSharp" Version="106.3.0" />
+    <PackageReference Include="StackExchange.Redis" Version="1.2.7-alpha-00002" />
     <PackageReference Include="WebSocket4Net" Version="0.15.2" />
   </ItemGroup>
 

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using DataAnalysis.Application.IService;
+using DataAnalysis.Application.IService.ICallService;
 using DataAnalysis.Application.IService.IJobService;
+using DataAnalysis.Application.IService.IUserService;
 using DataAnalysis.Component.Tools.Log;
 using DataAnalysis.Core.Data.Entity;
-using DataAnalysis.Core.Data.Entity.UnitTestEntity;
-using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DataAnalysisFrame.Controllers
@@ -18,34 +18,23 @@ namespace DataAnalysisFrame.Controllers
     {
         private readonly IAmplitudeService _iAmplitudeService;
         private readonly IExecuteSocketService _executeQueueService;
-        public ValuesController(IAmplitudeService iAmplitudeService, IExecuteSocketService executeQueueService)
+        private readonly IObtainService _iObtainService;
+        private readonly IUserAssetsService _iUserAssetsService;
+        public ValuesController(IAmplitudeService iAmplitudeService,
+            IExecuteSocketService executeQueueService, IObtainService iObtainService,
+            IUserAssetsService iUserAssetsService)
         {
             _iAmplitudeService = iAmplitudeService;
             _executeQueueService = executeQueueService;
+            _iObtainService = iObtainService;
+            _iUserAssetsService = iUserAssetsService;
         }
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            //Thread.Sleep(5000);
-            //_iAmplitudeService.StartWebSocket();
-            //_executeQueueService.ExecuteDetpthQueueJob();
-            #region
-            //string sql = "SELECT * FROM Test WHERE TsId=@TsId AND TsName=@TsName";
-            //ResponseMsg<IEnumerable<TestEntity>> res=_iTestRepository.ExecuteQuery<TestEntity>(sql, new { TsId = 1, TsName = "SmallHan" });
-            //ResponseMsg<int> resAdd=_iTestRepository.Add<TestEntity>(new TestEntity()
-            //{
-            //    TsName = "SmallHan",
-            //    TsAge = 20
-            //});
-            //ResponseMsg<List<TestEntity>> resList=_iTestRepository.GetList(p => p.TsId == 1 && p.TsName == "SmallHan");
-            ////_iTestRepository.Add(new TestEntity() { TsName = "小明", TsAge = 20 });
-            //ResponseMsg<int> resModify = _iTestRepository.Modify(p => new TestEntity()
-            //{
-            //    TsAge = 99
-            //}, o => o.TsId == 1);
-            //ResponseMsg<int> resDel = _iTestRepository.Remove(p => p.TsId == 4);
-            #endregion
+            //_iObtainService.GetNewTransactionRecord();
+            //_iObtainService.GetMmarketDetail("ada");
             return new string[] { "value1", "value2" };
         }
         // GET api/values

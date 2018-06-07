@@ -12,11 +12,11 @@ namespace DataAnalysis.Component.Tools.Constant
         /// 深度安全队列
         /// </summary>
 
-        public static ConcurrentQueue<ReceiveData> messageDepthQueue = new ConcurrentQueue<ReceiveData>();
+        public static ConcurrentQueue<ReceiveDataSocket> messageDepthQueue = new ConcurrentQueue<ReceiveDataSocket>();
 
         /// <summary>
         /// K线安全队列
         /// </summary>
-        public static ConcurrentQueue<ReceiveData> messageKLineQueue = new ConcurrentQueue<ReceiveData>();
+        public static ConcurrentQueue<ReceiveDataSocket> messageKLineQueue = new ConcurrentQueue<ReceiveDataSocket>();
     }
 }

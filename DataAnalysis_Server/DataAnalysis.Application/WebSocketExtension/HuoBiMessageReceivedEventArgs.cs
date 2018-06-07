@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using DataAnalysis.Application.IService.IJobService;
 using DataAnalysis.Component.Tools.Constant;
+using DataAnalysis.Component.Tools.Constant.ResponseEntity;
 using DataAnalysis.Component.Tools.Log;
 using DataAnalysisFrame;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,29 +17,36 @@ namespace DataAnalysis.Application.WebSocketExtension
 {
     public class HuoBiMessageReceivedEventArgs : EventArgs
     {
+        private string _msg { get; set; }
+        
 
-        private ReceiveData receiveData { get; set; }
-
-        public HuoBiMessageReceivedEventArgs(ReceiveData _receiveData)
+        public HuoBiMessageReceivedEventArgs(string msg)
         {
-            this.receiveData = _receiveData;
+            this._msg = msg;
+
             InsertData();
         }
         private void InsertData()
         {
             try
             {
-                string ch = receiveData.ch;
-                if (ch.IndexOf("depth") > 0)
+                var service = ServerLocation._iServiceProvider.Resolve<IExecuteSocketService>();
+                //深度
+                if (_msg.IndexOf("depth") > 0)
                 {
-                    var service = ServerLocation._iServiceProvider.Resolve<IExecuteSocketService>();
+                    var receiveData = JsonConvert.DeserializeObject<ReceiveDataSocket>(_msg);
                     service.ExecuteDetpthJob(receiveData);
                 }
-                else if (ch.IndexOf("kline") > 0)
+                //K线
+                else if (_msg.IndexOf("kline") > 0)
                 {
-                    Task.Factory.StartNew(() =>
-                    {
-                    });
+                }
+                //trace
+                else if (_msg.IndexOf("trade") > 0)
+                {
+                    //Trace.WriteLine(_msg);
+                    var receiveData = JsonConvert.DeserializeObject<TraceDataSocket>(_msg);
+                    service.ExecuteTradeJob(receiveData);
                 }
             }
             catch (Exception ex)

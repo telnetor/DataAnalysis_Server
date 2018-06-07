@@ -19,12 +19,6 @@ namespace DataAnalysis.Manipulation.DapperExtension
         public string ProviderFactoryString {
             get {
                 return AppSetting.GetConnection("MySql", "ProviderName");
-                //var builder = new ConfigurationBuilder()
-                //          .SetBasePath(Directory.GetCurrentDirectory())
-                //          .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-                //Configuration = builder.Build();
-                //connection = Configuration.GetSection("MySql")["ProviderName"];
-                //return connection;
             }
 
          }
@@ -33,12 +27,6 @@ namespace DataAnalysis.Manipulation.DapperExtension
             get
             {
                 return AppSetting.GetConnection("MySql", "DataAnalysisDB");
-                //var builder = new ConfigurationBuilder()
-                //          .SetBasePath(Directory.GetCurrentDirectory())
-                //          .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-                //Configuration = builder.Build();
-                //connection = Configuration.GetSection("MySql")["DataAnalysisDB"];
-                //return connection;
             }
         }
 

@@ -17,7 +17,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
 {
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
     {
-        private readonly IDbConnection _connection;
+        protected readonly IDbConnection _connection;
 
         public IUnitOfWork UnitOfWork { get; }
         private readonly GenerateSql<TEntity> _generateSql;
@@ -53,7 +53,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
         public ResponseMsg<int> Add<TModel>(TModel entity, IDbTransaction transaction = null) where TModel : BaseEntity, new()
         {
             ResponseMsg<int> responseMsg = new ResponseMsg<int>();
-            Tuple<string, IDbDataParameter[]> addSql =null;
+            Tuple<string, IDbDataParameter[]> addSql = null;
             DynamicParameters args = new DynamicParameters();
             string idtName = string.Empty;
             int addResult = 0;
@@ -89,7 +89,37 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
             {
                 _connection.Dispose();
             }
-        
+
+            return responseMsg;
+        }
+
+        public ResponseMsg<bool> AddBulk<T>(T entity, IDbTransaction transaction = null)
+        {
+            ResponseMsg<bool> responseMsg = new ResponseMsg<bool>();
+            Tuple<string, IDbDataParameter[]> addSql = null;
+            DynamicParameters args = new DynamicParameters();
+            string idtName = string.Empty;
+            int addResult = 0;
+            try
+            {
+                addSql = _generateSql.GenerateInsertSqlTextAndParam();
+                addResult = _connection.Execute(addSql.Item1, entity, transaction);
+                if (addResult > 0)
+                {
+                    responseMsg = responseMsg.Ok();
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                responseMsg = responseMsg.Error(ex);
+                LogManage.Error.Debug(ex.Message);
+            }
+            finally
+            {
+                _connection.Dispose();
+            }
+
             return responseMsg;
         }
 
@@ -104,11 +134,11 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 if (modSql.Item2 != null)
                     modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
                 var modResult = _connection.ExecuteScalar<int>(modSql.Item1, args);
-                responseMsg=responseMsg.Ok(modResult);
+                responseMsg = responseMsg.Ok(modResult);
             }
             catch (Exception ex)
             {
-                responseMsg=responseMsg.Error(ex);
+                responseMsg = responseMsg.Error(ex);
                 _recordInvokeSql.RecordSql(modSql);
                 LogManage.Error.Debug(ex.Message);
             }
@@ -152,7 +182,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
             }
             catch (Exception ex)
             {
-                responseMsg=responseMsg.Error(ex);
+                responseMsg = responseMsg.Error(ex);
                 _recordInvokeSql.RecordSql(sql);
                 LogManage.Error.Debug(ex.Message);
             }
@@ -174,7 +204,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
             }
             catch (Exception ex)
             {
-                responseMsg=responseMsg.Error(ex);
+                responseMsg = responseMsg.Error(ex);
                 _recordInvokeSql.RecordSql(sql);
                 LogManage.Error.Debug(ex.Message);
             }
@@ -203,11 +233,11 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
             ResponseMsg<bool> response = new ResponseMsg<bool>();
             if (responseMsg.StatusCode == (int)StatusCodeEnum.Success)
             {
-                response=response.Ok(responseMsg.Data > 0);
+                response = response.Ok(responseMsg.Data > 0);
             }
             else
             {
-                response=response.Error(new Exception(responseMsg.StatusMsg));
+                response = response.Error(new Exception(responseMsg.StatusMsg));
             }
             return response;
         }
@@ -224,7 +254,8 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 if (modSql.Item2 != null)
                     modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
                 var mod = _connection.Query<TEntity>(modSql.Item1, args).FirstOrDefault();
-                responseMsg=responseMsg.Ok(mod);
+
+                responseMsg = responseMsg.Ok(mod);
             }
             catch (Exception ex)
             {
@@ -249,7 +280,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 if (modSql.Item2 != null)
                     modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
                 var modResult = _connection.Query<TEntity>(modSql.Item1, args);
-                responseMsg=responseMsg.Ok(modResult.SingleOrDefault());
+                responseMsg = responseMsg.Ok(modResult.SingleOrDefault());
             }
             catch (Exception ex)
             {
@@ -278,7 +309,7 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 if (modSql.Item2 != null)
                     modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
                 modResult = _connection.Query<TEntity>(modSql.Item1, args);
-                responseMsg=responseMsg.Ok(modResult.ToList());
+                responseMsg = responseMsg.Ok(modResult.ToList());
             }
             catch (Exception ex)
             {
@@ -306,19 +337,20 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 if (modSql.Item2 != null)
                     modSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
                 int modResult = _connection.Execute(modSql.Item1, args, transaction);
-                responseMsg=responseMsg.Ok(modResult);
+
+                responseMsg = responseMsg.Ok(modResult);
             }
             catch (Exception ex)
             {
                 LogManage.Error.Debug(ex);
                 _recordInvokeSql.RecordSql(modSql.Item1);
-                responseMsg=responseMsg.Error(ex);
+                responseMsg = responseMsg.Error(ex);
             }
             finally
             {
                 _connection.Close();
             }
-          
+
             return responseMsg;
         }
 
@@ -335,13 +367,13 @@ namespace DataAnalysis.Core.Data.Repository.Repositories
                 if (delSql.Item2 != null)
                     delSql.Item2.ForAll(p => args.Add(p.ParameterName, p.Value));
                 delResult = _connection.Execute(delSql.Item1, args, transaction);
-                responseMsg=responseMsg.Ok(delResult);
+                responseMsg = responseMsg.Ok(delResult);
             }
             catch (Exception ex)
             {
                 LogManage.Error.Debug(ex);
                 _recordInvokeSql.RecordSql(delSql.Item1);
-                responseMsg=responseMsg.Error(ex);
+                responseMsg = responseMsg.Error(ex);
             }
             finally
             {

@@ -1,5 +1,6 @@
 ﻿using DataAnalysis.Component.Tools.Common;
 using DataAnalysis.Component.Tools.Constant;
+using DataAnalysis.Component.Tools.Constant.ResponseEntity;
 using DataAnalysis.Component.Tools.Log;
 using Newtonsoft.Json;
 using System;
@@ -74,9 +75,20 @@ namespace DataAnalysis.Application.WebSocketExtension
             {
                 if (msg.IndexOf("status")<0)
                 {
-                    //System.Diagnostics.Trace.WriteLine(msg);
-                    var receviceData = JsonConvert.DeserializeObject<ReceiveData>(msg);
-                    OnMessage?.Invoke(null, new HuoBiMessageReceivedEventArgs(receviceData));
+                    if (msg.IndexOf("depth") >= 0)
+                    {
+                        //System.Diagnostics.Trace.WriteLine(msg);
+                        OnMessage?.Invoke(null, new HuoBiMessageReceivedEventArgs(msg));
+                    }
+                    else if (msg.IndexOf("kline") >= 0)
+                    {
+
+                    }
+                    else if (msg.IndexOf("trade") >= 0)
+                    {
+                        OnMessage?.Invoke(null, new HuoBiMessageReceivedEventArgs(msg));
+                    }
+
                 }
             }
         }

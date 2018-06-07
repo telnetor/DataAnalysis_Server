@@ -1,5 +1,4 @@
 ﻿using DataAnalysis.Application.IService;
-using DataAnalysis.Core.Data.IRepositories.IUnitRepositories;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;

@@ -7,46 +7,51 @@ using System.Diagnostics;
 using System.Text;
 using System.Linq;
 using System.Dynamic;
-using DataAnalysis.Core.Data.BitEntity;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using DataAnalysisFrame;
 using Autofac;
 using DataAnalysis.Core.Data.Entity.DepthEntity;
 using DataAnalysis.Component.Tools.Log;
+using DataAnalysis.Component.Tools.Constant.ResponseEntity;
+using DataAnalysis.Component.Tools.Common;
+using DataAnalysis.Core.Data.Entity.TradeEntity;
 
 namespace DataAnalysis.Application.Service.BitService
 {
     public class BitBaseService
     {
-        public ICacheManager _iCacheManager { get; set; }
 
         private string CRRENCY_NAME = "CrrencyName";
         private string CRRENCY_TYPE = "CrrencyType";
+        private int timeOut = 1800;
 
         //预测金额
-        private double forecastAmount { get; set; }
+        private decimal forecastAmount { get; set; }
 
-        private List<BitDetail> bidsList { get; set; }
-        private List<BitDetail> asksList { get; set; }
+        private List<BitDetailEntity> bidsList=new List<BitDetailEntity>();
+        private List<BitDetailEntity> asksList = new List<BitDetailEntity>();
 
         public BitBaseService()
         {
-            _iCacheManager = ServerLocation._iServiceProvider.Resolve<ICacheManager>();
-            bidsList = new List<BitDetail>();
-            asksList = new List<BitDetail>();
         }
 
-        public virtual void Calc(ReceiveData receiveData)
+        #region 分析深度
+
+        public virtual void Calc(ReceiveDataSocket receiveData)
         {
+
             CalcBuyVolume(receiveData);
             CalcSellingVolume(receiveData);
+
             AnalysisDepth();
 
             if (forecastAmount > 0)
             {
                 var dic = GetPairs(receiveData.ch);
+                AnalysisBuyPrice(dic[CRRENCY_NAME]);
                 string currencyName = dic.Keys.Contains(CRRENCY_NAME) ? dic[CRRENCY_NAME] : string.Empty;
+                //当深度有变化才进行插入操作
                 if (!HuoBiContract.depthDic.Keys.Contains(currencyName))
                 {
                     var bitTarget = new
@@ -58,12 +63,12 @@ namespace DataAnalysis.Application.Service.BitService
                     };
                     HuoBiContract.depthDic.Add(currencyName, forecastAmount);
                     string json = JsonConvert.SerializeObject(bitTarget);
-                    Trace.WriteLine(json);
+                    //Trace.WriteLine(json);
                     InsertToRedis(json, currencyName, receiveData.tick.ts);
                 }
                 else
                 {
-                    double value = HuoBiContract.depthDic[currencyName];
+                    decimal value = HuoBiContract.depthDic[currencyName];
                     if (value != forecastAmount)
                     {
                         var bitTarget = new
@@ -76,7 +81,7 @@ namespace DataAnalysis.Application.Service.BitService
                         //更新
                         HuoBiContract.depthDic[currencyName] = forecastAmount;
                         string json = JsonConvert.SerializeObject(bitTarget);
-                        Trace.WriteLine(json);
+                        //Trace.WriteLine(json);
                         InsertToRedis(json, currencyName, receiveData.tick.ts);
                     }
                 }
@@ -85,27 +90,55 @@ namespace DataAnalysis.Application.Service.BitService
         }
 
         /// <summary>
+        /// 推算买入价格
+        /// </summary>
+        private void AnalysisBuyPrice(string bitName)
+        {
+            //_iCacheManager.Get(bitName)
+            string json = Convert.ToString(RedisHelper.Get(bitName));
+            if (!string.IsNullOrWhiteSpace(json))
+            {
+                TraceDataEntity entity = JsonConvert.DeserializeObject<TraceDataEntity>(json);
+                //当前行情价小于下一轮预估的价格，则上涨
+                if (entity.Price < forecastAmount)
+                {
+                    decimal range = forecastAmount - entity.Price;
+                    Trace.WriteLine($"预测:{forecastAmount},目前:{entity.Price},涨幅-{bitName}:{range}");
+                }
+                //下跌
+                else if (entity.Price > forecastAmount)
+                {
+                    decimal range = entity.Price - forecastAmount;
+                    Trace.WriteLine($"预测:{forecastAmount},目前:{entity.Price},跌幅-{bitName}:{range}");
+                }
+                else
+                {
+
+                }
+            }
+        }
+        /// <summary>
         /// 插入到redis，格式 币种:时间戳:json
         /// </summary>
         private void InsertToRedis(string json, string bitName, long tc)
         {
-            _iCacheManager.Insert(string.Format("{0}:{1}", bitName, tc), json, DateTime.Now.AddMinutes(2));
+            RedisHelper.SetAsync(string.Format("{0}:{1}", bitName, tc), json, timeOut);
         }
 
-        private void CalcBuyVolume(ReceiveData receiveData)
+        private void CalcBuyVolume(ReceiveDataSocket receiveData)
         {
             if (receiveData != null)
             {
                 double[][] bids = receiveData.tick.bids;
                 for (var i = 0; i < bids.Length; i++)
                 {
-                    BitDetail bitEntity = new BitDetail();
+                    BitDetailEntity bitEntity = new BitDetailEntity();
                     for (var j = 0; j < bids[i].Length; j++)
                     {
                         //价格
                         if (j == 0)
                         {
-                            bitEntity.Price = bids[i][j];
+                            bitEntity.Price =decimal.Parse(bids[i][j].ToString());
                         }
                         //成交量
                         else if (j == 1)
@@ -118,20 +151,20 @@ namespace DataAnalysis.Application.Service.BitService
             }
         }
 
-        private void CalcSellingVolume(ReceiveData receiveData)
+        private void CalcSellingVolume(ReceiveDataSocket receiveData)
         {
             if (receiveData != null)
             {
                 double[][] asks = receiveData.tick.asks;
                 for (var i = 0; i < asks.Length; i++)
                 {
-                    BitDetail bitEntity = new BitDetail();
+                    BitDetailEntity bitEntity = new BitDetailEntity();
                     for (var j = 0; j < asks[i].Length; j++)
                     {
                         //价格
                         if (j == 0)
                         {
-                            bitEntity.Price = asks[i][j];
+                            bitEntity.Price = decimal.Parse(asks[i][j].ToString());
                         }
                         //成交量
                         else if (j == 1)
@@ -250,6 +283,29 @@ namespace DataAnalysis.Application.Service.BitService
             }
             return dic;
         }
+
+        #endregion
+
+        #region 当前成交量
+        public void AnalysisTrade(TraceDataSocket receiveData)
+        {
+            Dictionary<string, string> dic = GetPairs(receiveData.ch);
+            //取data索引为0，为最新一条 
+            int len = receiveData.tick.data.Length - 1;
+            DateTime dt = UtilsHelper.GetTime(long.Parse(receiveData.tick.data[len].
+                datumTs.ToString().Substring(0, 10)));
+            var obj = new
+            {
+                CurrencyName = dic[CRRENCY_NAME],
+                TransactionDate= dt.ToString("yyyy-MM-dd HH:mm:ss:ff"),
+                Amount= receiveData.tick.data[len].amount,
+                Price = receiveData.tick.data[len].price,
+                Direction= receiveData.tick.data[0].direction
+            };
+            string json = JsonConvert.SerializeObject(obj);
+            RedisHelper.SetAsync(obj.CurrencyName, json, timeOut);
+        }
+        #endregion
     }
 }
 

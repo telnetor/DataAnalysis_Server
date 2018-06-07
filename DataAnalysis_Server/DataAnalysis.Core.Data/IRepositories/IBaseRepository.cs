@@ -87,5 +87,14 @@ namespace DataAnalysis.Core.Data.IRepositories
         /// 执行无参SQL
         /// </summary>
         ResponseMsg<object> ExcuteScalar(string sql, IDbTransaction transaction = null);
+
+        /// <summary>
+        /// 批量新增
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <param name="transaction"></param>
+        /// <returns></returns>
+        ResponseMsg<bool> AddBulk<T>(T entity, IDbTransaction transaction = null);
     }
 }
